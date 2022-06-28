@@ -7,4 +7,5 @@ title: docusaurus简介
 1. 可以在`Markdown`文本里面使用`React`组件
 2. 独立的部署翻译内容。
 3. 支持`Algolia`文档搜索
+
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

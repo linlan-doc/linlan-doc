@@ -39,13 +39,26 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [
+            [require('@docusaurus/remark-plugin-npm2yarn'), {
+              sync: true
+            }],
+          ]
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
         blog: {
           showReadingTime: true,
+          remarkPlugins: [
+            [require('@docusaurus/remark-plugin-npm2yarn'), {
+              sync: true
+            }],
+          ]
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
+        },
+        sitemap: {
+          ignorePatterns: ['/blog/tags/**','/docs/category/**'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

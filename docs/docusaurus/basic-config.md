@@ -63,15 +63,17 @@ import TabItem from '@theme/TabItem';
             },
           }),
         ]
+      ]
 
 #### 3.2 配置google adsense
 
- `docusaurus`没有内置`google adsense`，但添加`google adsense`非常容易，因为添加`google adsense`非常容易，只需要将一段`js`代码加入到`head`标签即可。`docusaurus`支持添加自定义的`js`文件。在`docusaurus.config.js`里面添加属性`scripts`，将`google adsense`的地址添加进去。
+ `docusaurus`没有内置`google adsense`，但添加`google adsense`非常容易，只需要将一段`js`代码加入到`head`标签即可。`docusaurus`支持添加自定义的`js`文件。在`docusaurus.config.js`里面添加属性`scripts`，将`google adsense`的地址添加进去。
 
     scripts: [{
         src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8766080864055711",
         crossorigin: "anonymous",
         async: true
       }
+    ]
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
