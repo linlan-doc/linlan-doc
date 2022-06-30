@@ -29,10 +29,20 @@ import TabItem from '@theme/TabItem';
 
  在生成的`key`的过程中，会提示你指定`key`名字，如果不指定，默认为`ed25519`。如果你打算生成多个`key`，就需要指定文件名称。  
 
- 生成`key`之后，需要将`key`加入到`ssh-agent`里面，只有这样本地`ssh`在和`github`通信的时候，才知道用哪个`key`进行通信。第一条命令是启动`ssh-agent`，第二条命令是将生成的`key`添加到`ssh-agent`里面。这里需要说明，`ssh-agent`并不是自动启动，所以每次`push`代码的时候，需要检查以下`ssh-agent`是否启动，否则会提示拒绝。
+ 生成`key`之后，需要将`key`加入到`ssh-agent`里面，只有这样本地`ssh`在和`github`通信的时候，才知道用哪个`key`进行通信。第一条命令是启动`ssh-agent`，第二条命令是将生成的`key`添加到`ssh-agent`里面。
 
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_ed25519
+
+:::caution
+
+ 这里需要注意，`ssh-agent`不会自动启动。下次重启之后，又需要手动启动`ssh-agent`，并且添加文件，非常麻烦。这里可以在`C:\Users\tiago\.ssh`目录下，新增一个`config`文件，内容如下：
+
+    Host *
+      AddKeysToAgent yes
+      IdentityFile ~/.ssh/id_ed25519
+
+:::
 
  生成的`key`实际是一对，包括公钥和私钥，需要将公钥（`~/.ssh/id_ed25519.pub`文件里面的内容)添加到`github`的`SSH`里面。
 

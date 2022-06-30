@@ -29,10 +29,16 @@ sidebar_position:  3
 
  当执行`go get`命令的时候，`golang`首先检查本地是否有需要安装的包，如果没有找到，它就会去服务器上下载。下载的地址取决于`GOPROXY`这个变量的值，`GOPROXY`的默认值为：`https://proxy.golang.org, direct`。这个默认值的含义是，如果在`https://proxy.golang.org`没有找到需要安装的包，就会去命令提供的`URL`里下载。
 
- `proxy.golang.org`是由`google`运营的模块镜像仓库，它会从源服务器同步模块到`proxy.golang.org`，当用户安装时，优先从`proxy.golang.org`下载。中国大陆屏蔽了`proxy.golang.org`，只能使用其他的镜像仓库，例如：[goproxy.cn](https://github.com/goproxy/goproxy.cn/blob/master/README.zh-CN.md)。使用的时候，修改`GOPROXY`的值即可。
+ `proxy.golang.org`是由`google`运营的模块镜像仓库，它会从源服务器同步模块到`proxy.golang.org`，当用户安装时，优先从`proxy.golang.org`下载。
+
+:::caution
+
+中国大陆屏蔽了`proxy.golang.org`，只能使用其他的镜像仓库，例如：[goproxy.cn](https://github.com/goproxy/goproxy.cn/blob/master/README.zh-CN.md)。使用的时候，修改`GOPROXY`的值即可。
 
     $ go env -w GO111MODULE=on
     $ go env -w GOPROXY=https://goproxy.cn,direct
+
+:::
 
  接下来，看看执行`go get rsc.io/quote/v4`后，发生了什么。
 
@@ -45,7 +51,11 @@ sidebar_position:  3
 
 ![引入quote](./asserts/golang-4.png)
 
-> tips: 如果无法下载quote包，清参考[golang环境搭建](/docs/golang/set-up)里面的代理设置。
+:::tip
+
+ 如果无法下载quote包，清参考[golang环境搭建](/docs/golang/set-up)里面的代理设置。
+
+:::
 
 ### 3. 升级包依赖
 

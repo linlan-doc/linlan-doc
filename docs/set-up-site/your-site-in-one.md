@@ -7,7 +7,11 @@ keywords: ['站点搭建','域名购买','vpn搭建']
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> 说明：因中国大陆审查严格，故本攻略仅针对海外建站。
+:::note
+
+说明：因中国大陆审查严格，故本攻略仅针对海外建站。
+
+:::
 
 ### 准备工作
 

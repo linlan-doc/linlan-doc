@@ -76,4 +76,18 @@ import TabItem from '@theme/TabItem';
       }
     ]
 
+### 4. 使用第三方react
+
+ 借助`MDX`的能力，`docusaurus`支持使用第三方的`react`组件。以[excel](https://www.npmjs.com/package/react-spreadsheet)，插件为例。先安装第三方组件，命令如下。
+
+    npm install react react-dom scheduler react-spreadsheet
+
+ 在需要使用该三方组件的`md`文件头，引入该三方组件。
+
+    import Spreadsheet from "react-spreadsheet";
+
+ 在需要使用的地方，直接使用这个组件。
+
+    <Spreadsheet data={[[{ value: "$PROFILE" }, { value: "当前用户，当前主机" }],[{ value: "$PROFILE.CurrentUserCurrentHost" }, { value: "当前用户，当前主机" }],[{ value: "$PROFILE.CurrentUserAllHosts" }, { value: "当前用户，所有主机" }],[{ value: "$PROFILE.AllUsersCurrentHost" }, { value: "所有用户，当前主机" }],[{ value: "$PROFILE.AllUsersAllHosts" }, { value: "所有用户，所有主机" }]]} columnLabels={["变量","说明"]} />
+
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
