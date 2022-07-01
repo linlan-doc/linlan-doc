@@ -19,58 +19,58 @@ import TabItem from '@theme/TabItem';
 
 ### 1. 服务器选择
 
- 海外的服务器提供商主要有：`Google Cloud`、`Amazon AWS`、`Vultr`、`Digital Ocean`等。`Google Cloud`和`Amazon AWS`都提供免费试用的服务，但这两家产品都偏贵，而且网络传输并不免费，在试用的时候需要格外小心。
+ 海外的服务器提供商主要有：_Google Cloud_、_Amazon AWS_、_Vultr_、_Digital Ocean_等。_Google Cloud_和_Amazon AWS_都提供免费试用的服务，但这两家产品都偏贵，而且网络传输并不免费，在试用的时候需要格外小心。
 
- 个人建站推荐使用`Vultr`和`Digital Ocean`，这两家最便宜的服务器只需要`5$/月`。笔者使用比较多的是[`Vultr`](https://www.vultr.com/?ref=8912579)，新用户注册可以领取`100$`的体验券，但这张体验券有效期只有`1`个月，即最多白嫖一个月。
+ 个人建站推荐使用_Vultr_和_Digital Ocean_，这两家最便宜的服务器只需要_5$/月_。笔者使用比较多的是[_Vultr_](https://www.vultr.com/?ref=8912579)，新用户注册可以领取_100$_的体验券，但这张体验券有效期只有_1_个月，即最多白嫖一个月。
 
- 在选择将服务器部署到哪个国家之前，需要对该国的网络进行测速。`ping test`的工具很多，例如[站长之家](https://ping.chinaz.com/)的`ping`工具。云服务器厂商提供了测试的`ip`，在`Google`上搜索`xxx ping test`就能搜到云厂商的测速页面，例如`Vultr`的[ping test](https://sgp-ping.vultr.com/)。你可以选择一个国家，获取到测试`ip`，然后用`ping`工具进行测试。从笔者使用情况看`Vultr`韩国的服务器比较好，国内的延迟大约`150ms`。
+ 在选择将服务器部署到哪个国家之前，需要对该国的网络进行测速。_ping test_的工具很多，例如[站长之家](https://ping.chinaz.com/)的_ping_工具。云服务器厂商提供了测试的_ip_，在_Google_上搜索_xxx ping test_就能搜到云厂商的测速页面，例如_Vultr_的[ping test](https://sgp-ping.vultr.com/)。你可以选择一个国家，获取到测试_ip_，然后用_ping_工具进行测试。从笔者使用情况看_Vultr_韩国的服务器比较好，国内的延迟大约_150ms_。
 
- 接下来需要选择操作系统镜像，选择`Clound Compute`，这里面的套餐最低`5$/月`，同时包含了`1000G`的流量，个人站点足够了。笔者使用的是`Ubuntu`的镜像，因此本文基于`Ubuntu`进行编写的。
+ 接下来需要选择操作系统镜像，选择_Clound Compute_，这里面的套餐最低_5$/月_，同时包含了_1000G_的流量，个人站点足够了。笔者使用的是_Ubuntu_的镜像，因此本文基于_Ubuntu_进行编写的。
 ![镜像选择](./asserts/set-up-site2.png)
 
 ### 2. 登录服务器
 
- 云服务器厂商提供了登录云服务器的工具，以`Vultr`为例，进入服务器实例详情，点击右上角`View Console`即可登录到服务器。当然你也可以使用`ssh`命令进行登录，在实例详情页面可以找到`ip`地址、端口以及密码。
+ 云服务器厂商提供了登录云服务器的工具，以_Vultr_为例，进入服务器实例详情，点击右上角_View Console_即可登录到服务器。当然你也可以使用_ssh_命令进行登录，在实例详情页面可以找到_ip_地址、端口以及密码。
 ![登录到服务器](./asserts/set-up-site1.png)
 
- 如果是`windows`用户，可以安装`WinScp`这款工具，拷贝文件非常方便，同时也可以集成`putty`。
+ 如果是_windows_用户，可以安装_WinScp_这款工具，拷贝文件非常方便，同时也可以集成_putty_。
 
 ### 3. 安装nginx
 
- `nginx`是一款风靡全球的反向代理服务器，个人站点多数是静态站点，用`nginx`作为服务器非常方便。
+ _nginx_是一款风靡全球的反向代理服务器，个人站点多数是静态站点，用_nginx_作为服务器非常方便。
 
     sudo apt-get install nginx
 
- 安装完成之后，需要配置域名。以`linlan.xyz`为例，在`/etc/nginx/conf.d`目录下，新建`linlan.conf`，这个配置文件的内容非常简单：指定了端口号和域名。
+ 安装完成之后，需要配置域名。以_linlan.xyz_为例，在_/etc/nginx/conf.d_目录下，新建_linlan.conf_，这个配置文件的内容非常简单：指定了端口号和域名。
 
     server {
             server_name linlan.xyz;
             listen 80;
     }
 
- 接下来需要重启一下`nginx`，让`linlan.conf`配置生效。
+ 接下来需要重启一下_nginx_，让_linlan.conf_配置生效。
 
     nginx -t //测试一下配置是否正常
     nginx -s reload //重启服务
 
 ### 4. 购买域名
 
- 域名是我们站点的名字，海外有一些知名的域名供应商，例如[Godaddy](https://www.godaddy.com)、[Domain](https://www.domain.com/)、[NameSilo](https://www.namesilo.com/?rid=2ddf330gz)，推荐使用`NameSilo`，
-`NameSilo`首年会有优惠，续费也没那么多套路，几十块一年，`DNS`解析不需要额外收费，并且支持支付宝付款。
+ 域名是我们站点的名字，海外有一些知名的域名供应商，例如[Godaddy](https://www.godaddy.com)、[Domain](https://www.domain.com/)、[NameSilo](https://www.namesilo.com/?rid=2ddf330gz)，推荐使用_NameSilo_，
+_NameSilo_首年会有优惠，续费也没那么多套路，几十块一年，_DNS_解析不需要额外收费，并且支持支付宝付款。
 
 #### 4.1 配置DNS
 
- 购买域名后，需要将域名指向云服务器。在`NameSilo`的首页，点击右上角的`Manage Domain`（如下图)，进入到域名列表，找到你想要绑定的域名，点击`Manage DNS for this domain`，进入`DNS`配置页面。
+ 购买域名后，需要将域名指向云服务器。在_NameSilo_的首页，点击右上角的_Manage Domain_（如下图)，进入到域名列表，找到你想要绑定的域名，点击_Manage DNS for this domain_，进入_DNS_配置页面。
 
 ![管理域名](./asserts/set-up-site3.png)
 
- 以本站为例，`linlan.xyz`是一个二级域名，如果要让`linlan.xyz`指向购买的服务器，需要新建一个类型`A`的域名解析记录。`HostName`选`@.linlan.xyz`，`IP Address`填写云服务器对外的`IP`地址。`NameSilo`生效的时间比较长，需要等一会域名解析才能生效，使用`ping`命令可查看域名解析是否已经生效。
+ 以本站为例，_linlan.xyz_是一个二级域名，如果要让_linlan.xyz_指向购买的服务器，需要新建一个类型_A_的域名解析记录。_HostName_选_@.linlan.xyz_，_IP Address_填写云服务器对外的_IP_地址。_NameSilo_生效的时间比较长，需要等一会域名解析才能生效，使用_ping_命令可查看域名解析是否已经生效。
 
 ![配置解析记录](./asserts/set-up-site4.png)
 
 ### 5. 检查服务器http和https端口
 
- 域名解析生效之后，在浏览器输入购买的域名，就能够看到`nginx`的欢迎页面了。如果`ping`和`ssh`都正常，但是页面无法正常打开，这时需要检查服务器是否允许访问`80(http)`和`443(https)`端口。如果端口没有打开，可以通过下面命令开启，开启之后再测试一下页面是否能够正常访问。
+ 域名解析生效之后，在浏览器输入购买的域名，就能够看到_nginx_的欢迎页面了。如果_ping_和_ssh_都正常，但是页面无法正常打开，这时需要检查服务器是否允许访问_80(http)_和_443(https)_端口。如果端口没有打开，可以通过下面命令开启，开启之后再测试一下页面是否能够正常访问。
 
     ufw status verbose //查看防火墙状态，确认端口是不是关闭
     sudo ufw allow 80 //打开80端口
@@ -78,9 +78,9 @@ import TabItem from '@theme/TabItem';
 
 ### 6. HTTPS证书申请
 
- `https`已经是站点的标配了，`Let’s Encrypt`提供免费的`https`证书，可以为你的站点申请一个。
+ _https_已经是站点的标配了，_Let’s Encrypt_提供免费的_https_证书，可以为你的站点申请一个。
 
-#### 6.1 安装`Encrypt Client`
+#### 6.1 安装_Encrypt Client_
 
 <Tabs groupId="operating-systems">
   <TabItem value="python2" label="python2"><code>sudo apt-get install certbot <br/>apt-get install python-certbot-nginx</code></TabItem>
@@ -93,13 +93,13 @@ import TabItem from '@theme/TabItem';
 
     sudo certbot --nginx -d example.com
 
- 上述命令执行完成之后，你可以前往`/etc/nginx/conf.d`文件夹下，查看站点的配置。你会发现配置的内容被`cerbot`修改过，增加了`https`的内容。打开浏览器，使用`https`请求站点，确定`https`证书是否正确安装。
+ 上述命令执行完成之后，你可以前往_/etc/nginx/conf.d_文件夹下，查看站点的配置。你会发现配置的内容被_cerbot_修改过，增加了_https_的内容。打开浏览器，使用_https_请求站点，确定_https_证书是否正确安装。
 
 #### 6.4 刷新证书
 
- `Let's Encrypt`生成的证书有`90`的有效期，所以需要定时的刷新。
+ _Let's Encrypt_生成的证书有_90_的有效期，所以需要定时的刷新。
 
--   打开`crontab`
+-   打开_crontab_
 
         crontab -e
 
@@ -109,18 +109,18 @@ import TabItem from '@theme/TabItem';
 
 ### 7. trojan安装
 
- `VPN`的协议有很多，`SS`、`Project V`和`Trojan`，笔者比较推荐`Trojan`，相对稳定，防干扰的能力出色。
+ _VPN_的协议有很多，_SS_、_Project V_和_Trojan_，笔者比较推荐_Trojan_，相对稳定，防干扰的能力出色。
 
     sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 
- `trojan`会监听`443`端口，如果不是`trojan`协议的流量，`trojan`会将请求转发到`80`端口，故`nginx`需关掉`https`的端口，只需将章节`6`中`cerbot`增加的`https`内容去掉即可，但需要记录证书和`key`的路径，这两个配置项在配置`trojan`的时候需要用到。
+ _trojan_会监听_443_端口，如果不是_trojan_协议的流量，_trojan_会将请求转发到_80_端口，故_nginx_需关掉_https_的端口，只需将章节_6_中_cerbot_增加的_https_内容去掉即可，但需要记录证书和_key_的路径，这两个配置项在配置_trojan_的时候需要用到。
 
     server {
             server_name linlan.xyz;
             listen 80;
     }
 
- 修改完`nginx`的配置文件之后，重启一下`nginx`。打开`trojan`的配置文件，`Ubuntu`下路径为`/usr/local/etc/trojan/config.json`，修改三个地方：密码，`cert`和`key`。
+ 修改完_nginx_的配置文件之后，重启一下_nginx_。打开_trojan_的配置文件，_Ubuntu_下路径为_/usr/local/etc/trojan/config.json_，修改三个地方：密码，_cert_和_key_。
 
     {
         "run_type": "server",
@@ -173,32 +173,32 @@ import TabItem from '@theme/TabItem';
         }
     }
 
- `trojan`的配置修改完之后，启动`trojan`服务即可。
+ _trojan_的配置修改完之后，启动_trojan_服务即可。
 
     trojan /usr/local/etc/trojan/config.json &
 
- 接下来是`trojan`客户端，有很多客户端支持`trojan`协议，这里笔者使用的是[Project V](https://www.v2ray.com/en/awesome/tools.html)的客户端，它既支持`Project V`的协议，也支持`trojan`的协议，配置如下图。
+ 接下来是_trojan_客户端，有很多客户端支持_trojan_协议，这里笔者使用的是[Project V](https://www.v2ray.com/en/awesome/tools.html)的客户端，它既支持_Project V_的协议，也支持_trojan_的协议，配置如下图。
 ![trojan客户端](./asserts/set-up-site6.png)
 
- 最后就是在`Chrome`上安装大名鼎鼎的`SwitchyOmega`插件，`SwitchyOmega`目前不能直接从`Chrome`的应用商店安装了，即使手动下载`crx`文件，拖动到`Chrome`里面也会报错。需用`zip`解压工具对`crx`文件进行解压，得到一个插件目录，打开`Chrome`的开发者模式进行加载即可。
+ 最后就是在_Chrome_上安装大名鼎鼎的_SwitchyOmega_插件，_SwitchyOmega_目前不能直接从_Chrome_的应用商店安装了，即使手动下载_crx_文件，拖动到_Chrome_里面也会报错。需用_zip_解压工具对_crx_文件进行解压，得到一个插件目录，打开_Chrome_的开发者模式进行加载即可。
 ![打开开发者模式](./asserts/set-up-site5.png)
 
- 现在的网络请求是这样中转的：`Chrome` ->  `trojan`客户端 ->  `trojan`服务端 -> 你想访问的网站。当然`trojan`客户端会过滤掉未被屏蔽的网站，这样速度会快很多。
+ 现在的网络请求是这样中转的：_Chrome_ ->  _trojan_客户端 ->  _trojan_服务端 -> 你想访问的网站。当然_trojan_客户端会过滤掉未被屏蔽的网站，这样速度会快很多。
 
- 接着介绍一下，`SwitchyOmega`如何配置。点击`SwitchyOmega`插件，进入选项界面，新建一个情景模式，参考下图进行配置。如果不知道`trojan`客户端监听的端口号，可以在`trojan`客户端主界面的左下角找到。
+ 接着介绍一下，_SwitchyOmega_如何配置。点击_SwitchyOmega_插件，进入选项界面，新建一个情景模式，参考下图进行配置。如果不知道_trojan_客户端监听的端口号，可以在_trojan_客户端主界面的左下角找到。
 ![SwitchyOmega配置](./asserts/set-up-site7.png)
 ![trojan客户端端口](./asserts/set-up-site8.png)
 
 ### 8. 搭建站点
 
- 市面上建站的开源框架非常的多，有[Hexo](https://hexo.io/docs/writing.html)、[Jekyll](https://github.com/jekyll/jekyll)、[WordPress](https://wordpress.com/)等，本站点使用的是`Facebook`开源的[docusaurus](https://docusaurus.io/)，有兴趣的朋友可以移步到[docusaurus使用全攻略](/docs/docusaurus/docusaurus-intro)，学习如何使用`docusaurus`搭建站点。
+ 市面上建站的开源框架非常的多，有[Hexo](https://hexo.io/docs/writing.html)、[Jekyll](https://github.com/jekyll/jekyll)、[WordPress](https://wordpress.com/)等，本站点使用的是_Facebook_开源的[docusaurus](https://docusaurus.io/)，有兴趣的朋友可以移步到[docusaurus使用全攻略](/docs/docusaurus/docusaurus-intro)，学习如何使用_docusaurus_搭建站点。
 
 ### 9. 发布站点
 
- 上面提到的建站框架支持生成静态站点，编译之后放到`nginx`对应的目录下即可。以`docusaurus`为例，执行`npm run build`之后，在项目根目录下会生成一个`build`文件夹，通过上面介绍的`WinScp`工具非常方便的拷贝到服务器上。
+ 上面提到的建站框架支持生成静态站点，编译之后放到_nginx_对应的目录下即可。以_docusaurus_为例，执行_npm run build_之后，在项目根目录下会生成一个_build_文件夹，通过上面介绍的_WinScp_工具非常方便的拷贝到服务器上。
 ![发布站点](./asserts/set-up-site9.png)
 
- 对应站点的`nginx`文件也需求进行修改，修改完成后，重启`nginx`。
+ 对应站点的_nginx_文件也需求进行修改，修改完成后，重启_nginx_。
 
     server {
             server_name linlan.xyz;
@@ -209,25 +209,25 @@ import TabItem from '@theme/TabItem';
 
 ### 10. 接入Google Search和Google gtag
 
- 对于一个站点，接入`Google Search`和`Google gtag`是必不可少的。`Google Search`可以让你的站点出现在`Google`的搜索结果中，`Google gtag`可以记录你的页面访问情况。
+ 对于一个站点，接入_Google Search_和_Google gtag_是必不可少的。_Google Search_可以让你的站点出现在_Google_的搜索结果中，_Google gtag_可以记录你的页面访问情况。
 
 #### 10.1 Google Search接入
 
- 登录到[Google Search](https://search.google.com/)之后，点击左上角的添加新资源，会跳出一个对话框。选择后面的`URL`的方式，这个时候会提示验证站点。验证的方式非常简单，下载一个`html`文件，将这个文件放到你站点根目录下（在本文的例子中，就是放在`build`目录下）即可。因为从本地拷贝`build`文件夹到服务器上时，可能会覆盖掉服务器上的`build`目录，导致这个`html`文件丢失，所以建议将这个`html`文件直接打包到你的站点文件里。
+ 登录到[Google Search](https://search.google.com/)之后，点击左上角的添加新资源，会跳出一个对话框。选择后面的_URL_的方式，这个时候会提示验证站点。验证的方式非常简单，下载一个_html_文件，将这个文件放到你站点根目录下（在本文的例子中，就是放在_build_目录下）即可。因为从本地拷贝_build_文件夹到服务器上时，可能会覆盖掉服务器上的_build_目录，导致这个_html_文件丢失，所以建议将这个_html_文件直接打包到你的站点文件里。
 
 ![添加新资源](./asserts/set-up-site10.png)
 
- 搜索引擎使用`sitemap`来发现站点里面的页面。建站框架提供了`sitemap`生成工具，默认会放到站点的根目录下。例如：`https://linlan.xyz/sitemap.xml`。
+ 搜索引擎使用_sitemap_来发现站点里面的页面。建站框架提供了_sitemap_生成工具，默认会放到站点的根目录下。例如：_https://linlan.xyz/sitemap.xml_。
 
 ![添加sitemap](./asserts/set-up-site11.png)
 
 #### 10.2 Google gtag接入
 
- 登录到[Google analytics](https://analytics.google.com/)，点击左下角的齿轮，进入设置页面。如果没有账户，先创建账户，接着创建资源，按照页面的指引下一步即可。最后得到一个`gtag id`。
+ 登录到[Google analytics](https://analytics.google.com/)，点击左下角的齿轮，进入设置页面。如果没有账户，先创建账户，接着创建资源，按照页面的指引下一步即可。最后得到一个_gtag id_。
 
 ![添加sitemap](./asserts/set-up-site12.png)
 
- `gtag`实际对应一段`js`代码，将这段代码放在站点的`head`标签里面即可，下面代码是例子。拷贝时记得将里面的`gtag id`换成你申请的`gtag id`。有些框架（例如`docusaurus`、`hexo`等）集成了`gtag`，只需要在配置文件里面修改`gtag id`即可。
+ _gtag_实际对应一段_js_代码，将这段代码放在站点的_head_标签里面即可，下面代码是例子。拷贝时记得将里面的_gtag id_换成你申请的_gtag id_。有些框架（例如_docusaurus_、_hexo_等）集成了_gtag_，只需要在配置文件里面修改_gtag id_即可。
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0QFZJ5DY3B"></script>

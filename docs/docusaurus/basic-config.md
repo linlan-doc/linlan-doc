@@ -6,7 +6,7 @@ title:             docusaurus基础配置
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
- `docusaurus`基于`nodejs`构建，要求`nodejs`的版本高于`16.14`，故使用`docusaurus`之前需要安装`nodejs`。
+ _docusaurus_基于_nodejs_构建，要求_nodejs_的版本高于_16.14_，故使用_docusaurus_之前需要安装_nodejs_。
 
 ### 1. nodejs安装
 
@@ -18,7 +18,7 @@ import TabItem from '@theme/TabItem';
 
 ### 2. 初始化新的项目
 
- `docusaurus`支持一键新建项目，首先进入到你想要初始化项目的目录，执行
+ _docusaurus_支持一键新建项目，首先进入到你想要初始化项目的目录，执行
 
     npx create-docusaurus@latest my-website classic
 
@@ -27,17 +27,17 @@ import TabItem from '@theme/TabItem';
     cd my-website
     npx run start
 
- `docusaurus`也支持生成静态站点，这样方便使用`nginx`作为服务器，而不需要单独启动`nodejs`的服务。使用下面命令即可编译，编译完成后在根目录会出现一个`build`的子目录。
+ _docusaurus_也支持生成静态站点，这样方便使用_nginx_作为服务器，而不需要单独启动_nodejs_的服务。使用下面命令即可编译，编译完成后在根目录会出现一个_build_的子目录。
 
     npx run build
 
 ### 3. 配置docusaurus.config.js
 
- `docusaurus.config.js`是整个站点的配置文件，`docusaurus`提供了非常丰富的配置，可以满足你的个性化诉求。
+ _docusaurus.config.js_是整个站点的配置文件，_docusaurus_提供了非常丰富的配置，可以满足你的个性化诉求。
 
 #### 3.1 配置gtag
 
- `gtag`可以用来监控页面的访问情况，`docusaurus`内置`gtag`，只需要修改以下配置即可。在`docusaurus.config.js`里面，有`presets`这个属性，将申请的`gtag`加入到`presets`即可。
+ _gtag_可以用来监控页面的访问情况，_docusaurus_内置_gtag_，只需要修改以下配置即可。在_docusaurus.config.js_里面，有_presets_这个属性，将申请的_gtag_加入到_presets_即可。
 
     presets: [
         [
@@ -67,7 +67,7 @@ import TabItem from '@theme/TabItem';
 
 #### 3.2 配置google adsense
 
- `docusaurus`没有内置`google adsense`，但添加`google adsense`非常容易，只需要将一段`js`代码加入到`head`标签即可。`docusaurus`支持添加自定义的`js`文件。在`docusaurus.config.js`里面添加属性`scripts`，将`google adsense`的地址添加进去。
+ _docusaurus_没有内置_google adsense_，但添加_google adsense_非常容易，只需要将一段_js_代码加入到_head_标签即可。_docusaurus_支持添加自定义的_js_文件。在_docusaurus.config.js_里面添加属性_scripts_，将_google adsense_的地址添加进去。
 
     scripts: [{
         src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8766080864055711",
@@ -78,11 +78,11 @@ import TabItem from '@theme/TabItem';
 
 ### 4. 使用第三方react
 
- 借助`MDX`的能力，`docusaurus`支持使用第三方的`react`组件。以[excel](https://www.npmjs.com/package/react-spreadsheet)，插件为例。先安装第三方组件，命令如下。
+ 借助_MDX_的能力，_docusaurus_支持在_md_文件里使用_react_组件。以[excel](https://www.npmjs.com/package/react-spreadsheet)，插件为例。先安装第三方组件，命令如下。
 
     npm install react react-dom scheduler react-spreadsheet
 
- 在需要使用该三方组件的`md`文件头，引入该三方组件。
+ 在需要使用该三方组件的_md_文件头，引入该三方组件。
 
     import Spreadsheet from "react-spreadsheet";
 
