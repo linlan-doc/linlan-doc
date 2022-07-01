@@ -7,10 +7,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
  编程语言的开发环境包含两部分：
-1\. _IDE_，用什么工具开发。
-2\. _SDK_，用什么编译和执行。
 
- _go_主流的_IDE_是_Goland_（和_Intellij_是一家）。当然也可以选择_VS code_、_Atom_等编辑器，通过安装插件的方式实现轻量级的_IDE_。_Goland_一年的授权费为_200_美金，第二年有优惠，有条件的朋友可以购买授权。笔者使用的是_VS code_，因为_go_团队为_VS code_开发了插件。
+1.  _IDE_，用什么工具开发。
+2.  _SDK_，用什么编译和执行。
+
+ _go_主流的_IDE_是_Goland_（和_Intellij_是一家）。当然也可以选择_VS code_、_Atom_等编辑器，通过安装插件的方式实现轻量级的_IDE_。_Goland_一年的授权费为200美金，第二年有优惠，有条件的朋友可以购买授权。笔者使用的是_VS code_，因为_go_团队为_VS code_开发了插件。
 
 ### 1. IDE下载
 
@@ -22,39 +23,47 @@ import TabItem from '@theme/TabItem';
 
 ### 3. 设置代理
 
- 因为网络封锁的原因，有一些_golang_的包无法下载，这时候需要设置代理。搭建代理可以参考[建站全攻略](/docs/set-up-site/your-site-in-one)。
+ 因为网络封锁的原因，有一些_go_的包无法下载，这时候需要设置代理。搭建代理可以参考[建站全攻略](/docs/set-up-site/your-site-in-one)。
 
 <Tabs groupId="operating-systems">
   <TabItem value="win-cmd" label="Windows的CMD">
-    打开<code>CMD</code>（注意是<code>CMD</code>，不是<code>PowerShell</code>）,执行以下命令：<br />
-    <code>
-      set http_proxy=http://127.0.0.1:10809 <br />
-      set https_proxy=http://127.0.0.1:10809 <br />
-      go install -v xxx
-    </code>
+
+ 打开_CMD_（注意是_CMD_，不是_PowerShell_）,执行以下命令：
+
+    set http_proxy=http://127.0.0.1:10809
+    set https_proxy=http://127.0.0.1:10809
+    go install -v xxx
+
   </TabItem>
   <TabItem value="win-power" label="Windows的PowerShell">
-    打开<code>PowerShell</code>,执行以下命令：<br />
-    <code>
-      $ENV:HTTPS_PROXY='http://127.0.0.1:10809' <br />
-      $ENV:HTTP_PROXY='http://127.0.0.1:10809' <br />
-      go install -v xxx
-    </code>
+
+ 打开_PowerShell_，执行以下命令：
+
+    $ENV:HTTPS_PROXY='http://127.0.0.1:10809'
+    $ENV:HTTP_PROXY='http://127.0.0.1:10809'
+    go install -v xxx
+
   </TabItem>
   <TabItem value="other" label="其他类unix系统">
-  <code>
+
     http_proxy=127.0.0.1:10809 go install -v xxx
-  </code> <br />
-    &emsp;如果失败，可能需要<code>https</code>的代理。<br />
-  <code>
+
+ 如果失败，可能需要_https_的代理。
+
     https_proxy=127.0.0.1:10809 go install -v xxx
-  </code>
+
   </TabItem>
 </Tabs>
 
+:::tip
+
+ _Power Shell_可以通过修改_profile_来设置代理，参考[PowerShell使用教程](../../blog/ps-usage)
+
+:::
+
 ### 4. 使用VS code
 
- _VS code_无法新建文件夹，所以需要手动新建一个_golang_的文件夹，然后从_VS code_里打开这个文件夹。接着打开终端，在终端执行初始化_module_的命令:
+ _VS code_无法新建文件夹，所以需要手动新建一个_go_的文件夹，然后从_VS code_里打开这个文件夹。接着打开终端，在终端执行初始化_module_的命令:
 
     go mod init hello-world
 
@@ -66,7 +75,7 @@ import TabItem from '@theme/TabItem';
 
 ### 5. 编写hello world
 
- 和其他编程语言一样,_go_的入口函数也是_main_，接下来我们编写一个打印_hello world_的程序，并且运行。
+ _go_的程序入口为_main_包下面的_main_方法，接下来我们编写一个打印_hello world_的程序，并且运行。
 
     package main
     import "fmt"
@@ -76,5 +85,13 @@ import TabItem from '@theme/TabItem';
     }
 
 ![运行程序](./asserts/golang-3.png)
+
+ 文件的目录结构如下：
+
+    root
+    ├── main
+    │   └── hello-world.go
+    ├── go.mod
+    └── go.sum
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

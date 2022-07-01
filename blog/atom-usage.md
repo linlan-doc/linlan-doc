@@ -26,3 +26,11 @@ authors:                                               lin
 -   _platformio-ide-terminal_打开终端的插件
 -   _vim-mode_，如果搜不到，可以使用_apm_命令进行安装_apm install vim-mode_
 -   _file-templates_文件模板，在写文档时，_md_文件中很多内容都是重复的，可以通过模板来创建新的文件。不过这个插件并不是通过文件的后缀名来匹配模板，而是创建的时候手动的指定从哪个模板创建。
+-   _ascii_tree_，通过_ascii_码生成树形结构，非常适合展示目录结构。先使用_+_、_-_号显示目录结构，选中文本，点击插件生成即可。
+
+
+    root
+    +-- dir1
+        +--file1
+    +-- dir2
+        +-- file2

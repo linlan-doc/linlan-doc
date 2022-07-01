@@ -6,14 +6,27 @@ title:             docusaurus基础配置
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
- _docusaurus_基于_nodejs_构建，要求_nodejs_的版本高于_16.14_，故使用_docusaurus_之前需要安装_nodejs_。
+ _docusaurus_基于_nodejs_构建，要求_nodejs_的版本高于16.14，故使用_docusaurus_之前需要安装_nodejs_。
 
 ### 1. nodejs安装
 
 <Tabs groupId="operating-systems">
-  <TabItem value="win" label="Windows">前往<a href='https://nodejs.org/en/download/'>nodejs官网</a>下载安装</TabItem>
-  <TabItem value="mac" label="macOS"><code>brew install node</code></TabItem>
-  <TabItem value="Ubuntu" label="Ubuntu"><code>sudo apt-get install nodejs</code></TabItem>
+  <TabItem value="win" label="Windows">
+
+ 前往[nodejs官网](https://nodejs.org/en/download)下载安装。
+
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+
+    brew install node
+
+  </TabItem>
+
+  <TabItem value="Ubuntu" label="Ubuntu">
+
+      sudo apt-get install nodejs
+
+  </TabItem>
 </Tabs>
 
 ### 2. 初始化新的项目
