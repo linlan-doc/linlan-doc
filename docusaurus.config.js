@@ -58,7 +58,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
         },
         sitemap: {
-          ignorePatterns: ['/blog/tags/**','/docs/category/**'],
+          ignorePatterns: ['/blog/tags/**', '/docs/category/**', '/blog', '/', '/blog/archive'],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /blog/tags/
+
+
+Sitemap: https://linlan.xyz/sitemap.xml

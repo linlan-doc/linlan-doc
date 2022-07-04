@@ -1,6 +1,7 @@
 ---
 sidebar_position:  2
 title:             docusaurus基础配置
+toc_max_heading_level: 4
 ---
 
 import Tabs from '@theme/Tabs';
@@ -102,5 +103,17 @@ import TabItem from '@theme/TabItem';
  在需要使用的地方，直接使用这个组件。
 
     <Spreadsheet data={[[{ value: "$PROFILE" }, { value: "当前用户，当前主机" }],[{ value: "$PROFILE.CurrentUserCurrentHost" }, { value: "当前用户，当前主机" }],[{ value: "$PROFILE.CurrentUserAllHosts" }, { value: "当前用户，所有主机" }],[{ value: "$PROFILE.AllUsersCurrentHost" }, { value: "所有用户，当前主机" }],[{ value: "$PROFILE.AllUsersAllHosts" }, { value: "所有用户，所有主机" }]]} columnLabels={["变量","说明"]} />
+
+### 5. 配置docs
+
+#### 5.1 配置文章的目录结构
+
+ _docusaurus_默认会将文章里的_Head_抽取出来，作为文章的目录结构，并且只抽取_2_和_3_级标题。同时它也支持用户在文章开头的配置里指定是否显示目录结构，以及抽取的标题的级别。
+
+    ---
+    hide_table_of_contents: true
+    toc_min_heading_level: 1
+    toc_max_heading_level: 4
+    ---
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
