@@ -1,6 +1,6 @@
 ---
-title: go工作区学习笔记
-sidebar_position:  6
+title: go工作区
+sidebar_position:  8
 keywords: ['go编程','go工作区','go语言学习','go教程']
 ---
 

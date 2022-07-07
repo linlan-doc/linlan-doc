@@ -4,6 +4,9 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const math = require('remark-math');
+const katex = require('rehype-katex');
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: '栏观',
@@ -14,6 +17,12 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
+  stylesheets: [{
+    href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+    type: 'text/css',
+    integrity: 'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+    crossorigin: 'anonymous',
+  }, ],
   scripts: [{
     src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8766080864055711",
     crossorigin: "anonymous",
@@ -43,12 +52,19 @@ const config = {
             [require('@docusaurus/remark-plugin-npm2yarn'), {
               sync: true
             }],
-          ]
+            [math, {
+              strict: false
+            }]
+          ],
+          rehypePlugins: [katex, {
+            strict: false
+          }]
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
         },
         blog: {
           showReadingTime: true,
+          blogTitle: "博客",
           remarkPlugins: [
             [require('@docusaurus/remark-plugin-npm2yarn'), {
               sync: true

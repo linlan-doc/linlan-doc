@@ -1,6 +1,6 @@
 ---
-title: go模块学习笔记
-sidebar_position:  5
+title: go模块
+sidebar_position:  7
 keywords: ['go编程','go模块学习','go语言学习','go教程']
 ---
 

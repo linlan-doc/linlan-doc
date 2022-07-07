@@ -7,7 +7,7 @@ toc_max_heading_level: 4
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
- _docusaurus_基于_nodejs_构建，要求_nodejs_的版本高于16.14，故使用_docusaurus_之前需要安装_nodejs_。
+ _docusaurus_ 基于 _nodejs_ 构建，要求 _nodejs_ 的版本高于16.14，故使用 _docusaurus_ 之前需要安装 _nodejs_。
 
 ### 1. nodejs安装
 
@@ -32,7 +32,7 @@ import TabItem from '@theme/TabItem';
 
 ### 2. 初始化新的项目
 
- _docusaurus_支持一键新建项目，首先进入到你想要初始化项目的目录，执行
+ _docusaurus_ 支持一键新建项目，首先进入到你想要初始化项目的目录，执行
 
     npx create-docusaurus@latest my-website classic
 
@@ -41,17 +41,17 @@ import TabItem from '@theme/TabItem';
     cd my-website
     npx run start
 
- _docusaurus_也支持生成静态站点，这样方便使用_nginx_作为服务器，而不需要单独启动_nodejs_的服务。使用下面命令即可编译，编译完成后在根目录会出现一个_build_的子目录。
+ _docusaurus_ 也支持生成静态站点，这样方便使用 _nginx_ 作为服务器。使用下面命令即可编译，编译完成后在根目录会出现一个 _build_ 的子目录。
 
     npx run build
 
 ### 3. 配置docusaurus.config.js
 
- _docusaurus.config.js_是整个站点的配置文件，_docusaurus_提供了非常丰富的配置，可以满足你的个性化诉求。
+ _docusaurus.config.js_ 是整个站点的配置文件，它提供了丰富的配置来满足用户的个性化诉求。
 
 #### 3.1 配置gtag
 
- _gtag_可以用来监控页面的访问情况，_docusaurus_内置_gtag_，只需要修改以下配置即可。在_docusaurus.config.js_里面，有_presets_这个属性，将申请的_gtag_加入到_presets_即可。
+ _gtag_ 可以用来监控页面的访问情况，_docusaurus_ 内置 _gtag_ ，在 _presets_ 属性里，加入 _gtag_ 配置即可。
 
     presets: [
         [
@@ -81,7 +81,7 @@ import TabItem from '@theme/TabItem';
 
 #### 3.2 配置google adsense
 
- _docusaurus_没有内置_google adsense_，但添加_google adsense_非常容易，只需要将一段_js_代码加入到_head_标签即可。_docusaurus_支持添加自定义的_js_文件。在_docusaurus.config.js_里面添加属性_scripts_，将_google adsense_的地址添加进去。
+ _docusaurus_ 没有内置 _google adsense_，但添加 _google adsense_ 非常容易，只需要将一段_js_代码加入到_head_标签即可。_docusaurus_ 支持添加自定义的 _js_ 文件。在 _docusaurus.config.js_ 里面添加属性 _scripts_，将 _google adsense_ 的地址添加进去。
 
     scripts: [{
         src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8766080864055711",
@@ -90,9 +90,119 @@ import TabItem from '@theme/TabItem';
       }
     ]
 
+#### 3.3 使用公式
+
+ _docusaurus_ 使用[KaTex](https://katex.org/)渲染公式，引入 _KaTex_ 步骤如下。
+
+1.  安装插件
+
+<Tabs groupId="katex">
+  <TabItem value="npm" label="npm">
+
+    npm install --save remark-math@3 rehype-katex@5 hast-util-is-element@1.1.0
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+    yarn add remark-math@3 rehype-katex@5 hast-util-is-element@1.1.0
+
+  </TabItem>
+
+</Tabs>
+
+2.  引入插件
+
+ 将插件引入`docusaurus.config.js`
+
+    const math = require('remark-math');
+    const katex = require('rehype-katex');
+
+3.  使用插件
+
+ 将插件加入到`presets`的`doc`属性里
+
+    remarkPlugins: [math],
+    rehypePlugins: [katex],
+
+ 因为第2步中定义了`math`和`katex`两个变量，所以上面配置等同于：
+
+    remarkPlugins: [require('remark-math')],
+    rehypePlugins: [require('rehype-katex')],
+
+ 如果提示以下错误，需要加上`{strict:false}`。
+
+> ValidationError: "remarkPlugins[1]" does not look like a valid MDX plugin config. A plugin config entry should be one of:
+>
+> -   A tuple, like `[require("rehype-katex"), { strict: false }]`, or
+> -   A simple module, like `require("remark-math")`
+
+    remarkPlugins: [math,{strict:false}],
+    rehypePlugins: [katex],
+
+4.  引入css
+
+ 在`stylesheets`配置下，添加 _KaTex_ 的 _css_ 文件。
+
+    stylesheets: [
+      {
+        href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+        type: 'text/css',
+        integrity:
+          'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+        crossorigin: 'anonymous',
+      },
+    ],
+
+ 修改之后，`docusaurus.config.js`变成
+
+    const math = require('remark-math');
+    const katex = require('rehype-katex');
+
+    module.exports = {
+      title: 'Docusaurus',
+      tagline: 'Build optimized websites quickly, focus on your content',
+      presets: [
+        [
+          '@docusaurus/preset-classic',
+          {
+            docs: {
+              path: 'docs',
+              remarkPlugins: [math],
+              rehypePlugins: [katex],
+            },
+          },
+        ],
+      ],
+      stylesheets: [
+        {
+          href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+          type: 'text/css',
+          integrity:
+            'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+          crossorigin: 'anonymous',
+        },
+      ],
+    };
+
+5.  语法
+
+ 行内公式用`$`标识，公式块用`$$`。举个例子
+
+    $i^2 =-1      //行内
+
+    $$           //公式块
+    I = \int_0^{2\pi} \sin(x)\,dx
+    $$
+
+:::caution
+
+公式不能放在代码块里
+
+:::
+
 ### 4. 使用第三方react
 
- 借助_MDX_的能力，_docusaurus_支持在_md_文件里使用_react_组件。以[excel](https://www.npmjs.com/package/react-spreadsheet)，插件为例。先安装第三方组件，命令如下。
+ 借助 _MDX_ 的能力，_docusaurus_ 支持在 _md_ 文件里使用 _react_ 组件。以[excel](https://www.npmjs.com/package/react-spreadsheet)插件为例。先安装第三方组件，命令如下。
 
     npm install react react-dom scheduler react-spreadsheet
 
@@ -108,7 +218,7 @@ import TabItem from '@theme/TabItem';
 
 #### 5.1 配置文章的目录结构
 
- _docusaurus_默认会将文章里的_Head_抽取出来，作为文章的目录结构，并且只抽取_2_和_3_级标题。同时它也支持用户在文章开头的配置里指定是否显示目录结构，以及抽取的标题的级别。
+ _docusaurus_ 默认会将文章里的 _Head_ 抽取出来，作为文章的目录结构，并且只抽取2和3级标题。同时它也支持用户在文章开头的配置里指定是否显示目录结构，以及抽取的标题的级别。
 
     ---
     hide_table_of_contents: true
