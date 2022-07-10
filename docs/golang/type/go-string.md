@@ -7,7 +7,7 @@ toc_max_heading_level: 4
 
 import Image from '@theme/IdealImage';
 
- _go_ 用 _string_ 来标识字符串类型，在了解字符串类型前，可以前往[基础语法](./basic-syntax)的 _String literals_ ，了解字符串常量的内容。
+ _go_ 用 _string_ 来标识字符串类型，在了解字符串类型前，可以前往[基础语法](../syntax/basic-syntax)的 _String literals_ ，了解字符串常量的内容。
 
  字符串类型有以下特性：
 

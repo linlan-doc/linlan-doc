@@ -1,6 +1,6 @@
 ---
 title: go基础语法
-sidebar_position:  3
+sidebar_position:  1
 toc_max_heading_level: 4
 
 keywords: ['go语言教程','go基础语法','go语言学习','rune literals','string literals']
