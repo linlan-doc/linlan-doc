@@ -8,6 +8,8 @@ authors:   lin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+import Image from '@theme/IdealImage';
+
  [_Github_](https://github.com/)是风靡全球的代码托管平台，它托管了无数的开源项目，可以说是一个宝藏网站。
 
 ### 1. 账号申请
@@ -44,10 +46,7 @@ import TabItem from '@theme/TabItem';
 
 :::
 
- 生成的 _key_ 实际是一对，包括公钥和私钥，需要将公钥（_~/.ssh/id_ed25519.pub_ 文件里面的内容)添加到 _github_ 的 _SSH_ 里面。
-
-![添加SSH](./asserts/github1.png)
-
+ 
   </TabItem>
   <TabItem value="mac" label="mac">
 
@@ -88,6 +87,10 @@ _Mac_ 的命令和 _windows_ 的命令类似，一些参数的含义就不再赘
 
   </TabItem>
 </Tabs>
+
+生成的 _key_ 实际是一对，包括公钥和私钥，需要将公钥（_~/.ssh/id_ed25519.pub_ 文件里面的内容)添加到 _github_ 的 _SSH_ 里面。
+
+<Image img={require('./asserts/github1.png')} alt="添加SSH" />
 
  这里简单介绍一下 _ssh_ 的公钥认证的原理，在介绍它之前，需要先了解非对称加密算法，介绍非对称加密算法的文章很多，这里只需要知道非对称算法的几个特点：
 
@@ -139,3 +142,5 @@ _SSHV2_:
 _ssh key_ 已经添加，但还是提示没有权限，可以检查 _ssh-agent_ 是否启动。
 
 :::
+
+[署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

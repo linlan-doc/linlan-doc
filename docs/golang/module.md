@@ -4,6 +4,8 @@ sidebar_position:  7
 keywords: ['go编程','go模块学习','go语言学习','go教程']
 ---
 
+import Image from '@theme/IdealImage';
+
  模块是 _go_ 代码包的集合，模块根目录下的 _go.mod_ 文件定义了模块的路径、依赖等信息。
 
     module hello-world
@@ -52,7 +54,9 @@ keywords: ['go编程','go模块学习','go语言学习','go教程']
 
  在代码里面引入 _quote_，成功调用 _quota.Hello()_ 方法。
 
-![引入quote](./asserts/golang-4.png)
+
+
+<Image img={require('./asserts/golang-4.png')} alt="引入quote" />
 
 :::tip
 
@@ -66,11 +70,14 @@ keywords: ['go编程','go模块学习','go语言学习','go教程']
 
     go get golang.org/x/text
 
-![升级包](./asserts/golang-5.png)
+
+
+<Image img={require('./asserts/golang-5.png')} alt="升级包" />
 
  细心的小伙伴可能发现，包后面有 _indirect_ 的标注，这个 _indirect_ 表示不直接依赖这个包。例如 _A_ → _B_, _B_ → _C_，那么 _A_ 就间接依赖 _C_。但是上述代码里面直接引用了 _quote_ 包，为什么它也是 _indirect_？这可能是先 _go get_，后在代码里面引用的缘故，执行 _go mod tidy_ 即可。
 
-![执行go mod tidy](./asserts/golang-6.png)
+
+<Image img={require('./asserts/golang-6.png')} alt="执行 go mod tidy" />
 
 ### 4. 发布包
 

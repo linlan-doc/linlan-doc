@@ -8,6 +8,8 @@ keywords: ['go编程','go开发环境搭建','go语言学习','go教程']
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+import Image from '@theme/IdealImage';
+
  编程语言的开发环境包含两部分：
 
 1.  _IDE_，用什么工具开发。
@@ -69,11 +71,15 @@ import TabItem from '@theme/TabItem';
 
     go mod init hello-world
 
-![初始化module](./asserts/golang-1.png)
+
+<Image img={require('./asserts/golang-1.png')} alt="初始化module" />
+
 
  在 _go_ 文件夹下新建一个文件夹 _main_，在 _main_ 文件夹下新建 _hello-world.go_，这个时候 _VS code_ 会提示你有些插件没有安装，如果直接安装会失败，请使用代理试试。
 
-![新建文件](./asserts/golang-2.png)
+
+<Image img={require('./asserts/golang-2.png')} alt="新建文件" />
+
 
 ### 5. 编写hello world
 
@@ -86,7 +92,8 @@ import TabItem from '@theme/TabItem';
     	fmt.Print("hello world")
     }
 
-![运行程序](./asserts/golang-3.png)
+
+<Image img={require('./asserts/golang-3.png')} alt="运行程序" />
 
  文件的目录结构如下：
 

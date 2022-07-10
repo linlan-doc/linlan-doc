@@ -63,3 +63,5 @@ toc_max_heading_level: 4
     }
 
  _go_ 官方没有`BigDecimal`，使用比较多的是[shopspring/decimal](https://github.com/shopspring/decimal)。
+
+[署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

@@ -36,3 +36,5 @@ import Spreadsheet from "react-spreadsheet";
 ```jsx title="添加代理"
 $ENV:HTTPS_PROXY='http://127.0.0.1:10809'
 ```
+
+[署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

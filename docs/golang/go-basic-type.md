@@ -6,6 +6,7 @@ toc_max_heading_level: 4
 ---
 
 import Spreadsheet from "react-spreadsheet";
+import Image from '@theme/IdealImage';
 
 > 数据类型是编程语言的重要概念，它决定了一类值的集合以及对应的操作。本文介绍 _go_ 的布尔类型。
 
@@ -37,7 +38,8 @@ import Spreadsheet from "react-spreadsheet";
     	fmt.Println("comp 4:", u != (float32(x) > z))
     }
 
-![执行结果](./asserts/golang-9.png)
+
+<Image img={require('./asserts/golang-9.png')} alt="执行结果" />
 
 :::caution
 

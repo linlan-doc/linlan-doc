@@ -200,6 +200,63 @@ import TabItem from '@theme/TabItem';
 
 :::
 
+
+#### 3.4 响应式图片
+
+ _plugin-ideal-image_ 插件支持生成响应式、懒加载的图片，极大的增强用户体验。插件安装步骤如下：
+
+1.  安装插件
+
+<Tabs groupId="IdealImage">
+  <TabItem value="npm" label="npm">
+
+    npm install --save @docusaurus/plugin-ideal-image
+
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+    yarn add @docusaurus/plugin-ideal-image
+
+  </TabItem>
+</Tabs>
+
+2.  修改docusaurus.config.js
+
+
+    module.exports = {
+      plugins: [
+        [
+          '@docusaurus/plugin-ideal-image',
+          {
+            quality: 70,
+            max: 1030, // max resized image's size.
+            min: 640, // min resized image's size. if original is lower, use that size.
+            steps: 2, // the max number of images generated between min and max (inclusive)
+            disableInDev: false,
+          },
+        ],
+      ],
+    };
+
+3.  使用插件
+
+ 在_md_文件里使用即可。
+
+    import Image from '@theme/IdealImage';
+    import thumbnail from './path/to/img.png';
+
+    // your React code
+    <Image img={thumbnail} />
+
+    // or
+    <Image img={require('./path/to/img.png')} />
+
+:::tip
+
+插件仅支持PNG和JPG格式的图片
+
+:::
+
 ### 4. 使用第三方react
 
  借助 _MDX_ 的能力，_docusaurus_ 支持在 _md_ 文件里使用 _react_ 组件。以[excel](https://www.npmjs.com/package/react-spreadsheet)插件为例。先安装第三方组件，命令如下。

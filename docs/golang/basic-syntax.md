@@ -8,6 +8,8 @@ keywords: ['go语言教程','go基础语法','go语言学习','rune literals','s
 
 import Spreadsheet from "react-spreadsheet";
 
+import Image from '@theme/IdealImage';
+
  _go_ 语法内容丰富，现精选一些常用语法进行介绍。
 
 ### 1. 词法元素
@@ -126,7 +128,7 @@ _go_ 没有三目运算符（ternary)，官方的解释是`if else`可读性更�
 
  执行结果如下：
 
-![执行结果](./asserts/golang-7.png)
+<Image img={require('./asserts/golang-7.png')} alt="执行结果" />
 
 #### 1.8 String literals
 
@@ -184,7 +186,8 @@ _go_ 没有三目运算符（ternary)，官方的解释是`if else`可读性更�
 
  上面代码定义了4个 _rune_，6个 _interpreted string_ 。其中4个 _rune literals_ 都表示 _U+00FF_ 这个码点。在 _interpreted string_ 里`\u`和`\U`被解析成为码点，但`\nnn`和`\xnn`被解析成为了一个字节，并且是某个字符 _UTF-8_ 结果里面的某个字节（_s5_ 和 _s6_） 。
 
-![执行结果](./asserts/golang-8.png)
+
+<Image img={require('./asserts/golang-8.png')} alt="执行结果" />
 
 ### 2. 参考文献
 
