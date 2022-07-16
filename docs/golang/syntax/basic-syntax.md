@@ -12,20 +12,18 @@ import Image from '@theme/IdealImage';
 
  _go_ 语法内容丰富，现精选一些常用语法进行介绍。
 
-### 1. 词法元素
-
-#### 1.1 代码评论
+#### 1. 代码评论
 
  和其他编程语言类似，有两种形式：
 
 -   以`//`开始，到一行结束
 -   以`/*`开始，到最近的`*/`结束。
 
-#### 1.2 语句结尾
+#### 2. 语句结尾
 
  _go_ 以`;`作为语句结尾，但很多时候`;`可以省略。
 
-#### 1.3 标识符
+#### 3. 标识符
 
  标识符是变量或者类型的名称，由字母和数字组成。_go_ 里字母和数字的定义基于[unicode 8.0](https://www.unicode.org/versions/Unicode8.0.0/)。其中字母也包括`_`(U+005F)，标识符的第一个必须是字母。下面都是合法的标识符。
 
@@ -34,7 +32,7 @@ import Image from '@theme/IdealImage';
     ThisVariableIsExported
     αβ
 
-#### 1.4 关键字
+#### 4. 关键字
 
  下面是 _go_ 定义的关键字，这些关键字无法被用作标识符。
 
@@ -44,7 +42,7 @@ import Image from '@theme/IdealImage';
     const        fallthrough  if           range        type
     continue     for          import       return       var
 
-#### 1.5 运算符
+#### 5. 运算符
 
  _go_ 运算符定义如下。
 
@@ -61,7 +59,7 @@ _go_ 没有三目运算符（ternary)，官方的解释是`if else`可读性更�
 
 :::
 
-#### 1.6 整数
+#### 6. 整数
 
  _go_ 为非10进制数定义了前缀，二进制为`0b`或者`0B`；8进制为`0`或者`0o`或者`0O`；16进制为`0x`或者`0X`，单独的`0`表示10进制的0。在16进制下，_a_ ~ _f_ 和 _A_ ~ _F_ 表示10~15。为了方便阅读，允许加入`_`，但是下面这些例子并非合法的整数。
 
@@ -70,7 +68,7 @@ _go_ 没有三目运算符（ternary)，官方的解释是`if else`可读性更�
     4__2 //一次只能有一个_，这点和Java不同
     0_xBadFace //_后面必须是合法的数字。
 
-#### 1.7 Rune literals
+#### 7. Rune literals
 
  _Rune literals_ 用来表示字符常量，在理解 _Rune literals_ 之前，需要先理解 _Unicode_ 。最早的字符编码是 _ascii_ ，它用7比特来表示128个字符，包括英文字符大小写、数字等。随着计算机的广泛应用，字符越来越多，这显然不够。于是出现了 _Unicode_ 编码。 _Unicode_ 编码的思想和 _ascii_ 类似，用一个数字来对应一个字符，这个数字被称为码点(_Unicode Code Point_)。最新的版本为14，一共144697个字符，需要一个32位的整数来表示这些码点。
 
@@ -130,7 +128,7 @@ _go_ 没有三目运算符（ternary)，官方的解释是`if else`可读性更�
 
 <Image img={require('./asserts/golang-7.png')} alt="执行结果" />
 
-#### 1.8 String literals
+#### 8. String literals
 
  _go_ 里面的字符串分为两种：一种叫 _raw string_，一种叫 _interpreted string_。_raw string_ 用左引号 `` ` `` 标识。左引号之间可以是任意字符（除了左引号），包括换行符。`\`没有特殊的含义（这是叫 _raw_ 的原因，同时左引号无法转义）
 
@@ -189,7 +187,7 @@ _go_ 没有三目运算符（ternary)，官方的解释是`if else`可读性更�
 
 <Image img={require('./asserts/golang-8.png')} alt="执行结果" />
 
-### 2. 参考文献
+---
 
 [1]. [UTF-8维基百科](https://en.wikipedia.org/wiki/UTF-8)<br/>
 [2]. [go语言标准](https://go.dev/ref/spec)

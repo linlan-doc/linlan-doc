@@ -41,6 +41,10 @@ import Image from '@theme/IdealImage';
 
 <Image img={require('./asserts/golang-9.png')} alt="执行结果" />
 
+ 两个操作数能进行比较的前提是：两个操作数能相互赋值。特殊类型的比较规则如下：
+
+1.  同类型的指针可以进行比较（可以相互赋值），当两个指针指向同一个变量或者两个指针都为`nil`时，两者相等。
+
 :::caution
 
     x=y  //将y赋值给x

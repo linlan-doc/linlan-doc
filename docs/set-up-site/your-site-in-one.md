@@ -2,12 +2,12 @@
 sidebar_position: 1
 title: 搭建站点全攻略（多图）
 keywords: ['站点搭建','域名购买','vpn搭建']
-
 toc_max_heading_level: 4
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Image from '@theme/IdealImage';
 
 :::note
 
@@ -21,20 +21,21 @@ import TabItem from '@theme/TabItem';
 
 ### 1. 服务器选择
 
- 海外的服务器提供商主要有：_Google Cloud_、_Amazon AWS_、_Vultr_、_Digital Ocean_等。_Google Cloud_和_Amazon AWS_都提供免费试用的服务，但这两家产品都偏贵，而且网络传输并不免费，在试用的时候需要格外小心。
+ 海外的服务器提供商主要有：_Google Cloud_、_Amazon AWS_、_Vultr_、_Digital Ocean_ 等。_Google Cloud_ 和 _Amazon AWS_ 都提供免费试用的服务，但这两家产品都偏贵，而且网络传输并不免费，在试用的时候需要格外小心。
 
- 个人建站推荐使用_Vultr_和_Digital Ocean_，这两家最便宜的服务器只需要5_$_ /月。笔者使用比较多的是[Vultr](https://www.vultr.com/?ref=8912579)，新用户注册可以领取100_$_的体验券，但这张体验券有效期只有1个月，即最多白嫖1个月。
+ 个人建站推荐使用 _Vultr_ 和 _Digital Ocean_，这两家最便宜的服务器只需要5 _$_/月。笔者使用比较多的是[Vultr](https://www.vultr.com/?ref=8912579)，新用户注册可以领取100 _$_ 的体验券，但这张体验券有效期只有1个月，即最多白嫖1个月。
 
- 在选择将服务器部署到哪个国家之前，需要对该国的网络进行测速。_ping test_ 的工具很多，例如[站长之家](https://ping.chinaz.com/)的_ping_工具。云服务器厂商提供了测试的_ip_，在_Google_上搜索_xxx ping test_就能搜到云厂商的测速页面，例如_Vultr_的[ping test](https://sgp-ping.vultr.com/)。你可以选择一个国家，获取到测试 _ip_，然后用 _ping_ 工具进行测试。从笔者使用情况看[Vultr](https://www.vultr.com/?ref=891257)韩国的服务器比较好，国内的延迟大约150_ms_。
+ 在选择将服务器部署到哪个国家之前，需要对该国的网络进行测速。_ping test_ 的工具很多，例如[站长之家](https://ping.chinaz.com/)的 _ping_ 工具。云服务器厂商提供了测试的 _ip_，在 _Google_ 上搜索 _xxx ping test_ 就能搜到云厂商的测速页面，例如_Vultr_的[ping test](https://sgp-ping.vultr.com/)。你可以选择一个国家，获取到测试 _ip_，然后用 _ping_ 工具进行测试。从笔者使用情况看[Vultr](https://www.vultr.com/?ref=891257)韩国的服务器比较好，国内的延迟大约150 _ms_。
 
  接下来需要选择操作系统镜像，选择 _Clound Compute_，这里面的套餐最低5 _$_/月，同时包含了1000 _G_ 的流量，个人站点足够了。笔者使用的是 _Ubuntu_ 的镜像，因此本文基于 _Ubuntu_ 进行编写的。
 
-![镜像选择](./asserts/set-up-site2.png)
+<Image img={require('./asserts/set-up-site2.png')} alt="镜像选择" />
 
 ### 2. 登录服务器
 
  云服务器厂商提供了登录云服务器的工具，以[Vultr](https://www.vultr.com/?ref=891257)为例，进入服务器实例详情，点击右上角 _View Console_ 即可登录到服务器。当然你也可以使用 _ssh_ 命令进行登录，在实例详情页面可以找到 _ip_ 地址、端口以及密码。
-![登录到服务器](./asserts/set-up-site1.png)
+
+<Image img={require('./asserts/set-up-site1.png')} alt="登录到服务器" />
 
  如果是 _windows_ 用户，可以安装 _WinScp_ 这款工具，拷贝文件非常方便，同时也可以集成 _putty_。
 
@@ -51,10 +52,18 @@ import TabItem from '@theme/TabItem';
             listen 80;
     }
 
- 接下来需要重启一下_nginx_，让_linlan.conf_配置生效。
+ 接下来需要重启一下 _nginx_，让 _linlan.conf_ 配置生效。
 
     nginx -t //测试一下配置是否正常
     nginx -s reload //重启服务
+
+:::tip
+
+ 访问`http://example.com/foo`，nginx会301到`http://example.com/foo/`。为了避免301，需要加上以下配置：
+
+    try_files $uri $uri/index.html $uri/ =404;
+
+:::
 
 ### 4. 购买域名
 
@@ -65,11 +74,11 @@ import TabItem from '@theme/TabItem';
 
  购买域名后，需要将域名指向云服务器。在[NameSilo](https://www.namesilo.com/?rid=2ddf330g)的首页，点击右上角的 _Manage Domain_（如下图)，进入到域名列表，找到你想要绑定的域名，点击 _Manage DNS for this domain_，进入 _DNS_ 配置页面。
 
-![管理域名](./asserts/set-up-site3.png)
+<Image img={require('./asserts/set-up-site3.png')} alt="管理域名" />
 
  以本站为例，_linlan.xyz_ 是一个二级域名，如果要让 _linlan.xyz_ 指向购买的服务器，需要新建一个类型 _A_ 的域名解析记录。_HostName_ 选`@.linlan.xyz`，_IP Address_ 填写云服务器对外的 _IP_ 地址。_NameSilo_ 生效的时间比较长，需要等一会域名解析才能生效，使用 _ping_ 命令可查看域名解析是否已经生效。
 
-![配置解析记录](./asserts/set-up-site4.png)
+<Image img={require('./asserts/set-up-site4.png')} alt="配置解析记录" />
 
 ### 5. 检查服务器http和https端口
 
@@ -176,35 +185,36 @@ import TabItem from '@theme/TabItem';
         }
     }
 
- _trojan_的配置修改完之后，启动_trojan_服务即可。
+ _trojan_ 的配置修改完之后，启动 _trojan_ 服务即可。
 
     trojan /usr/local/etc/trojan/config.json &
 
- 接下来是_trojan_客户端，有很多客户端支持_trojan_协议，这里笔者使用的是[Project V](https://www.v2ray.com/en/awesome/tools.html)的客户端，它既支持_Project V_的协议，也支持_trojan_的协议，配置如下图。
+ 接下来是 _trojan_ 客户端，有很多客户端支持 _trojan_ 协议，这里笔者使用的是[Project V](https://www.v2ray.com/en/awesome/tools.html)的客户端，它既支持 _Project V_ 的协议，也支持 _trojan_ 的协议，配置如下图。
 
-![trojan客户端](./asserts/set-up-site6.png)
+<Image img={require('./asserts/set-up-site6.png')} alt="trojan客户端" />
 
  最后就是在 _Chrome_ 上安装大名鼎鼎的 _SwitchyOmega_ 插件，_SwitchyOmega_ 目前不能直接从 _Chrome_ 的应用商店安装了，即使手动下载 _crx_ 文件，拖动到 _Chrome_ 里面也会报错。需用 _zip_ 解压工具对 _crx_ 文件进行解压，得到一个插件目录，打开 _Chrome_ 的开发者模式进行加载即可。
 
-![打开开发者模式](./asserts/set-up-site5.png)
+<Image img={require('./asserts/set-up-site5.png')} alt="打开开发者模式" />
 
  现在的网络请求是这样中转的：_Chrome_ → _trojan_ 客户端 → _trojan_ 服务端 → 你想访问的网站。当然 _trojan_ 客户端会过滤掉未被屏蔽的网站，这样速度会快很多。
 
  接着介绍一下，_SwitchyOmega_ 如何配置。点击 _SwitchyOmega_ 插件，进入选项界面，新建一个情景模式，参考下图进行配置。如果不知道 _trojan_ 客户端监听的端口号，可以在 _trojan_ 客户端主界面的左下角找到。
 
-![SwitchyOmega配置](./asserts/set-up-site7.png)
+<Image img={require('./asserts/set-up-site7.png')} alt="SwitchyOmega配置" />
 
-![trojan客户端端口](./asserts/set-up-site8.png)
+<Image img={require('./asserts/set-up-site8.png')} alt="trojan客户端端口" />
+
 
 ### 8. 搭建站点
 
- 市面上建站的开源框架非常的多，有[Hexo](https://hexo.io/docs/writing.html)、[Jekyll](https://github.com/jekyll/jekyll)、[WordPress](https://wordpress.com/)等，本站点使用的是_Facebook_开源的[docusaurus](https://docusaurus.io/)，有兴趣的朋友可以移步到[docusaurus使用全攻略](/docs/docusaurus/docusaurus-intro)，学习如何使用_docusaurus_搭建站点。
+ 市面上建站的开源框架非常的多，有[Hexo](https://hexo.io/docs/writing.html)、[Jekyll](https://github.com/jekyll/jekyll)、[WordPress](https://wordpress.com/)等，本站点使用的是 _Facebook_ 开源的[docusaurus](https://docusaurus.io/)，有兴趣的朋友可以移步到[docusaurus使用全攻略](/docs/docusaurus/docusaurus-intro)，学习如何使用 _docusaurus_ 搭建站点。
 
 ### 9. 发布站点
 
- 上面提到的建站框架支持生成静态站点，编译之后放到_nginx_对应的目录下即可。以 _docusaurus_ 为例，执行 _npm run build_ 之后，在项目根目录下会生成一个 _build_ 文件夹，通过上面介绍的 _WinScp_ 工具非常方便的拷贝到服务器上。
+ 上面提到的建站框架支持生成静态站点，编译之后放到 _nginx_ 对应的目录下即可。以 _docusaurus_ 为例，执行 _npm run build_ 之后，在项目根目录下会生成一个 _build_ 文件夹，通过上面介绍的 _WinScp_ 工具非常方便的拷贝到服务器上。
 
-![发布站点](./asserts/set-up-site9.png)
+<Image img={require('./asserts/set-up-site9.png')} alt="发布站点" />
 
  对应站点的 _nginx_ 文件也需求进行修改，修改完成后，重启 _nginx_。
 
@@ -221,13 +231,13 @@ import TabItem from '@theme/TabItem';
 
 #### 10.1 Google Search接入
 
- 登录到[Google Search](https://search.google.com/)之后，点击左上角的添加新资源，会跳出一个对话框。选择后面的_URL_的方式，这个时候会提示验证站点。验证的方式非常简单，下载一个 _html_ 文件，将这个文件放到你站点根目录下（在本文的例子中，就是放在 _build_ 目录下）即可。因为从本地拷贝 _build_ 文件夹到服务器上时，可能会覆盖掉服务器上的 _build_ 目录，导致这个 _html_ 文件丢失，所以建议将这个 _html_ 文件直接打包到你的站点文件里。
+ 登录到[Google Search](https://search.google.com/)之后，点击左上角的添加新资源，会跳出一个对话框。选择后面的 _URL_ 的方式，这个时候会提示验证站点。验证的方式非常简单，下载一个 _html_ 文件，将这个文件放到你站点根目录下（在本文的例子中，就是放在 _build_ 目录下）即可。因为从本地拷贝 _build_ 文件夹到服务器上时，可能会覆盖掉服务器上的 _build_ 目录，导致这个 _html_ 文件丢失，所以建议将这个 _html_ 文件直接打包到你的站点文件里。
 
-![添加新资源](./asserts/set-up-site10.png)
+<Image img={require('./asserts/set-up-site10.png')} alt="添加新资源" />
 
  搜索引擎使用 _sitemap_ 来发现站点里面的页面。建站框架提供了 _sitemap_ 生成工具，默认会放到站点的根目录下。例如：_<https://linlan.xyz/sitemap.xml>_。
 
-![添加sitemap](./asserts/set-up-site11.png)
+<Image img={require('./asserts/set-up-site11.png')} alt="添加sitemap" />
 
 #### 10.2 添加robots.txt文件
 
@@ -245,7 +255,8 @@ import TabItem from '@theme/TabItem';
 
  登录到[Google analytics](https://analytics.google.com/)，点击左下角的齿轮，进入设置页面。如果没有账户，先创建账户，接着创建资源，按照页面的指引下一步即可。最后得到一个 _gtag id_。
 
-![添加sitemap](./asserts/set-up-site12.png)
+
+<Image img={require('./asserts/set-up-site12.png')} alt="添加gtag" />
 
  _gtag_ 实际对应一段 _js_ 代码，将这段代码放在站点的 _head_ 标签里面即可，下面代码是例子。拷贝时记得将里面的 _gtag id_ 换成你申请的 _gtag id_。有些框架（例如 _docusaurus_、_hexo_ 等）集成了 _gtag_，只需要在配置文件里面修改 _gtag id_ 即可。
 

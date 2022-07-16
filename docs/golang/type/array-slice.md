@@ -213,6 +213,8 @@ import Image from '@theme/IdealImage';
     a = append(a, b...) // equivalent to "append(a, b[0], b[1], b[2])"
     // a == []string{"John", "Paul", "George", "Ringo", "Pete"}
 
+---
+
 1.  [Go Slices: usage and internals](https://go.dev/blog/slices-intro)
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

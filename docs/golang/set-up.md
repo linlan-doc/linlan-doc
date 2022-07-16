@@ -19,7 +19,7 @@ import Image from '@theme/IdealImage';
 
 ### 1. IDE下载
 
- 前往[VS code官网](https://code.visualstudio.com/Download)，下载系统对应的安装程序。安装完成之后，前往[go插件地址](https://marketplace.visualstudio.com/items?itemName=golang.go)，点击下载会调起_VS code_进行插件安装。
+ 前往[VS code官网](https://code.visualstudio.com/Download)，下载系统对应的安装程序。安装完成之后，前往[go插件地址](https://marketplace.visualstudio.com/items?itemName=golang.go)，点击下载会调起 _VS code_ 进行插件安装。
 
 ### 2. SDK安装
 

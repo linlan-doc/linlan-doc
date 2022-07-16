@@ -13,7 +13,7 @@ import Spreadsheet from "react-spreadsheet";
 
  _PowerShell_ 支持个性化配置，同时定义了很多变量来方便用户对 _profile_ 进行配置。
 
-<Spreadsheet data={[[{ value: "$PROFILE" }, { value: "当前用户，当前主机" }],[{ value: "$PROFILE.CurrentUserCurrentHost" }, { value: "当前用户，当前主机" }],[{ value: "$PROFILE.CurrentUserAllHosts" }, { value: "当前用户，所有主机" }],[{ value: "$PROFILE.AllUsersCurrentHost" }, { value: "所有用户，当前主机" }],[{ value: "$PROFILE.AllUsersAllHosts" }, { value: "所有用户，所有主机" }]]} columnLabels={["变量","说明"]} hideRowIndicators={true} />
+&lt;Spreadsheet data={\[[{ value: "$PROFILE" }, { value: "当前用户，当前主机" }],[{ value: "$PROFILE.CurrentUserCurrentHost" }, { value: "当前用户，当前主机" }],[{ value: "$PROFILE.CurrentUserAllHosts" }, { value: "当前用户，所有主机" }],[{ value: "$PROFILE.AllUsersCurrentHost" }, { value: "所有用户，当前主机" }],[{ value: "$PROFILE.AllUsersAllHosts" }, { value: "所有用户，所有主机" }]]} columnLabels={["变量","说明"]} hideRowIndicators={true} />
 
  查看变量对应值
 
@@ -31,7 +31,7 @@ import Spreadsheet from "react-spreadsheet";
 
     notepad $PROFILE.AllUsersAllHosts
 
- 在 _profile_ 里新增代理配置如下，这样启动 _PowerShell_ 时默认会将 _http&#x3A;/127.0.0.1/10809_ 作为 _Https_ 的代理。
+ 在 _profile_ 里新增代理配置如下，这样启动 _PowerShell_ 时默认会将 _<http://127.0.0.1/10809>_ 作为 _Https_ 的代理。
 
 ```jsx title="添加代理"
 $ENV:HTTPS_PROXY='http://127.0.0.1:10809'

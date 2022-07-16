@@ -2,6 +2,8 @@
 sidebar_position:  2
 title:             docusaurus基础配置
 toc_max_heading_level: 4
+
+keywords: ['docusaurus配置','个人建站','react','网站模板']
 ---
 
 import Tabs from '@theme/Tabs';
@@ -81,7 +83,7 @@ import TabItem from '@theme/TabItem';
 
 #### 3.2 配置google adsense
 
- _docusaurus_ 没有内置 _google adsense_，但添加 _google adsense_ 非常容易，只需要将一段_js_代码加入到_head_标签即可。_docusaurus_ 支持添加自定义的 _js_ 文件。在 _docusaurus.config.js_ 里面添加属性 _scripts_，将 _google adsense_ 的地址添加进去。
+ _docusaurus_ 没有内置 _google adsense_，但添加 _google adsense_ 非常容易，只需要将一段 _js_ 代码加入到 _head_ 标签即可。_docusaurus_ 支持添加自定义的 _js_ 文件。在 _docusaurus.config.js_ 里面添加属性 _scripts_，将 _google adsense_ 的地址添加进去。
 
     scripts: [{
         src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8766080864055711",
@@ -200,7 +202,6 @@ import TabItem from '@theme/TabItem';
 
 :::
 
-
 #### 3.4 响应式图片
 
  _plugin-ideal-image_ 插件支持生成响应式、懒加载的图片，极大的增强用户体验。插件安装步骤如下：
@@ -240,7 +241,7 @@ import TabItem from '@theme/TabItem';
 
 3.  使用插件
 
- 在_md_文件里使用即可。
+ 在 _md_ 文件里使用即可。
 
     import Image from '@theme/IdealImage';
     import thumbnail from './path/to/img.png';
@@ -282,5 +283,18 @@ import TabItem from '@theme/TabItem';
     toc_min_heading_level: 1
     toc_max_heading_level: 4
     ---
+
+### 6. 修改category路径
+
+ _doc_ 目录下，每一个文件夹是一个 _category_ ，文件夹下的 _category.json_ 是该 _category_ 的配置。默认情况下，_category_ 的路径为 _label_ 标签值，如果标签包含中文，那么 _category_ 路径也会包含中文，不是非常友好，在 _category.json_ 下加上 _slug_ 即可。
+
+    {
+      "label": "docusaurus使用",
+      "position": 3,
+      "link": {
+        "type": "generated-index",
+        slug: "/category/docusaurus"
+      }
+    }
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
