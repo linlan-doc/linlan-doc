@@ -5,6 +5,7 @@ toc_max_heading_level: 4
 
 keywords: ['go语言教程','go基础语法','go语言学习','scope','go作用域']
 ---
+
 import Image from '@theme/IdealImage';
 
  作用域指声明的标识符在代码中的可见范围，[标识符](./basic-syntax)包括变量、结构体、方法、常量等。在 _go_ 里，作用域通过[代码块](./go-block)实现。

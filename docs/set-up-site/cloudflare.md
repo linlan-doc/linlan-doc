@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: 为你的站点接入cloudflare
+title: 利用cloudflare免费cdn为你的站点加速
 keywords: ['国外免费cdn','防止ddos攻击','cloudflare接入']
 
 toc_max_heading_level: 4
@@ -32,7 +32,7 @@ import Image from '@theme/IdealImage';
 
  最后一步是将域名原来的 _nameserver_ 换成 _cloudflare_ 的。这需要前往域名供应商的后台进行修改，以[namesilo](https://www.namesilo.com/?rid=2ddf330)为例，选中域名，点击 _Change NameServers_ 即可。
 
-<Image img={require('./asserts/set-up-site15.png')} alt="修改nameserver" />
+<Image img={require('./asserts/set-up-site15.png')} alt="cloudflare提供的nameserver" />
 
 <Image img={require('./asserts/set-up-site16.png')} alt="修改nameserver" />
 

@@ -5,6 +5,10 @@ keywords: ['go编程','go数据类型','go语言学习','go数值类型']
 toc_max_heading_level: 4
 ---
 
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous" />
+</head>
+
  _go_ 定义了三种数值类型：整型、浮点型和复数型（$i^2=-1$），架构无关的数值类型有：
 
     uint8       8位无符号整数 (0 to 255)

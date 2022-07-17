@@ -222,7 +222,6 @@ import Image from '@theme/IdealImage';
             server_name linlan.xyz;
             listen 80;
             root /root/build/; 拷贝到服务器的目录
-            rewrite  ^/$  https://$server_name/index.html permanent;
     }
 
 ### 10. 接入Google Search和Google gtag

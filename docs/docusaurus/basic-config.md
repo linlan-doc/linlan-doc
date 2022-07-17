@@ -9,6 +9,7 @@ keywords: ['docusaurus配置','个人建站','react','网站模板']
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
  _docusaurus_ 基于 _nodejs_ 构建，要求 _nodejs_ 的版本高于16.14，故使用 _docusaurus_ 之前需要安装 _nodejs_。
 
 ### 1. nodejs安装
@@ -186,6 +187,18 @@ import TabItem from '@theme/TabItem';
       ],
     };
 
+
+:::caution
+
+ `docusaurus.config.js`的 _css_ 配置是全局的，意味着所有页面加载时都会加载这个 _css_ 文件，这样做并不合理。可以只在使用公式的 _md_ 文件开头，加上：
+
+    <head>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous" />
+    </head>
+
+:::
+
+
 5.  语法
 
  行内公式用`$`标识，公式块用`$$`。举个例子
@@ -195,6 +208,7 @@ import TabItem from '@theme/TabItem';
     $$           //公式块
     I = \int_0^{2\pi} \sin(x)\,dx
     $$
+
 
 :::caution
 

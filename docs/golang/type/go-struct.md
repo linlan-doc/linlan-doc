@@ -176,6 +176,8 @@ _go_ 支持直接使用指针访问元素，`b.first`等同于`(*b).first`
 
  _struct_ 支持匿名属性，当这个属性为结构体时，_struct_ 可以直接访问这个内嵌结构体里面的属性，这被称为 _Promoted Field_ 。上面例子里,`student.area`即为 _Promoted Field_。
 
+* * *
+
 1.  [Structures in Go](https://medium.com/rungo/structures-in-go-76377cc106a2)
 2.  [Structs](https://golangbot.com/structs/)
 

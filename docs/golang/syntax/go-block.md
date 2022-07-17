@@ -6,6 +6,8 @@ toc_max_heading_level: 4
 keywords: ['go语言教程','go基础语法','go语言学习','go blocks','go代码块']
 ---
 
+import Image from '@theme/IdealImage';
+
  代码块是 _go_ 里非常重要的概念，它直接影响了声明标识符的可见性（标识符是否可以访问）。代码块通过`{}`声明，例子如下。
 
     package main
@@ -54,7 +56,7 @@ keywords: ['go语言教程','go基础语法','go语言学习','go blocks','go代
 
     }
 
---- 
+* * *
 
 1.  [go specification](https://go.dev/ref/spec)
 
