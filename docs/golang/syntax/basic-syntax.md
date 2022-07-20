@@ -187,9 +187,66 @@ _go_ 没有三目运算符（ternary)，官方的解释是`if else`可读性更�
 
 <Image img={require('./asserts/golang-8.png')} alt="执行结果" />
 
----
+#### 9. named return values
+ _go_ 允许像参数一样，给返回值命名并使用它。在函数开始时，命名的返回值被初始化为对应类型的0值，在函数执行过程中，可以修改命名的返回值，如果`return`语句没有参数，命名返回值的结果会返回给调用者。
 
-[1]. [UTF-8维基百科](https://en.wikipedia.org/wiki/UTF-8)<br/>
-[2]. [go语言标准](https://go.dev/ref/spec)
+    package main
+
+    import "fmt"
+
+    func namedReturn1(a, b int) (sum int) {
+    	sum = a + b
+    	return
+    }
+
+    func namedReturn2(a, b int) (sum int) {
+    	return a * b
+    }
+
+    func main() {
+    	a := 5
+    	b := 10
+
+    	fmt.Printf("\nnamed return 1 result : %d", namedReturn1(a, b))
+    	fmt.Printf("\nnamed return 2 result : %d", namedReturn2(a, b))
+    }
+
+
+<Image img={require('./asserts/golang-5.png')} alt="执行结果" />
+
+ 命名返回值的优点有：
+
+1.  它可以作为函数的注释，返回值的命名可以清楚的告诉调用方每一个返回值的含义。
+
+2.  它是自动声明并初始化为0的。
+
+3.  它允许`defer`函数捕获原函数的返回值，并修改返回值（可用于处理 _panic_ 等)。
+
+
+    package main
+
+    import "fmt"
+
+    func namedReturn() (s string) {
+    	defer func() {
+    		if s == "abc" {
+    			s = "def"
+    		}
+    	}()
+    	return "abc"
+    }
+    func main() {
+    	fmt.Println(namedReturn())
+    }
+
+
+<Image img={require('./asserts/golang-6.png')} alt="执行结果" />
+
+---
+1.  [UTF-8维基百科](https://en.wikipedia.org/wiki/UTF-8)
+
+2.  [go语言标准](https://go.dev/ref/spec)
+
+3.  [Why would return parameters be named?](https://stackoverflow.com/questions/15089726/why-would-return-parameters-be-named)
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

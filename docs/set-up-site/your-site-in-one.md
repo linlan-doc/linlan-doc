@@ -17,15 +17,23 @@ import Image from '@theme/IdealImage';
 
 ### 准备工作
 
- 购买海外的云服务产品可能需要一张支持美元的信用卡，所以需要提前申请。
+ 购买海外云服务产品可能需要一张支持美元的信用卡，请提前申请。
 
 ### 1. 服务器选择
 
- 海外的服务器提供商主要有：_Google Cloud_、_Amazon AWS_、_Vultr_、_Digital Ocean_ 等。_Google Cloud_ 和 _Amazon AWS_ 都提供免费试用的服务，但这两家产品都偏贵，而且网络传输并不免费，在试用的时候需要格外小心。
+ 海外的服务器提供商主要有：_Google Cloud_、_Amazon AWS_、_Vultr_、_Digital Ocean_ 等。_Google Cloud_ 和 _Amazon AWS_ 都提供免费试用服务，但这两家产品都偏贵，而且带宽并不免费，在试用的时候需要格外小心。
 
  个人建站推荐使用 _Vultr_ 和 _Digital Ocean_，这两家最便宜的服务器只需要5 _$_/月。笔者使用比较多的是[Vultr](https://www.vultr.com/?ref=8912579)，新用户注册可以领取100 _$_ 的体验券，但这张体验券有效期只有1个月，即最多白嫖1个月。
 
- 在选择将服务器部署到哪个国家之前，需要对该国的网络进行测速。_ping test_ 的工具很多，例如[站长之家](https://ping.chinaz.com/)的 _ping_ 工具。云服务器厂商提供了测试的 _ip_，在 _Google_ 上搜索 _xxx ping test_ 就能搜到云厂商的测速页面，例如_Vultr_的[ping test](https://sgp-ping.vultr.com/)。你可以选择一个国家，获取到测试 _ip_，然后用 _ping_ 工具进行测试。从笔者使用情况看[Vultr](https://www.vultr.com/?ref=891257)韩国的服务器比较好，国内的延迟大约150 _ms_。
+ 在选择将服务器部署到哪个国家之前，需要对该国的网络进行测速。_ping test_ 的工具很多，例如[站长之家](https://ping.chinaz.com/)的 _ping_ 工具。云服务器厂商提供了测试的 _ip_，在 _Google_ 上搜索 _xxx ping test_ 就能搜到云厂商的测速页面，例如 _Vultr_ 的[ping test](https://sgp-ping.vultr.com/)。你可以选择一个国家，获取到测试 _ip_，然后用 _ping_ 工具进行测试。从笔者使用情况看，[Vultr](https://www.vultr.com/?ref=891257)韩国的服务器比较好，国内的延迟大约150 _ms_。
+
+
+:::info
+
+总结一句话：个人建站选择[Vultr](https://www.vultr.com/?ref=89125)韩国服务器，国内延迟低，每月只要5 _$_。
+
+:::
+
 
  接下来需要选择操作系统镜像，选择 _Clound Compute_，这里面的套餐最低5 _$_/月，同时包含了1000 _G_ 的流量，个人站点足够了。笔者使用的是 _Ubuntu_ 的镜像，因此本文基于 _Ubuntu_ 进行编写的。
 
