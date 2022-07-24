@@ -103,4 +103,12 @@ import Image from '@theme/IdealImage';
     ├── go.mod
     └── go.sum
 
+### 6. 汇编代码
+
+ _go_ 编译工具支持打印汇编代码，在学习的过程中可以结合汇编代码加深对 _go_ 的理解，下面命令将 _main.go_ 的汇编代码写入 _main.s_ 文件中。
+
+    go tool compile -S -N main.go >main.s
+
+
+
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

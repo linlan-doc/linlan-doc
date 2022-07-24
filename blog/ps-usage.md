@@ -39,7 +39,7 @@ $ENV:HTTPS_PROXY='http://127.0.0.1:10809'
 
 ### 2. scp免密拷贝
 
- 发布站点到服务器时，需要将本地打包好的内容拷贝到远程服务器上。_PowerShell_ 支持 _scp_ 命令，可以参考[github使用](/blog/github-usage)一文，将本地的 _pub key_ 加到远程服务器的信任 _key_ 中，这样校验的时候不用输入密码。
+ 发布站点到服务器时，需要将本地打包好的内容拷贝到远程服务器上。_PowerShell_ 支持 _scp_ 命令，可以参考[github使用](/blog/github-usage)一文，将本地的 _pub key_ 加到远程服务器的信任 _key_ 中，这样拷贝时不用输入密码。
 
     cat ~/.ssh/id_rsa.pub | ssh username@server.address.com 'cat >> ~/.ssh/authorized_keys'
 
