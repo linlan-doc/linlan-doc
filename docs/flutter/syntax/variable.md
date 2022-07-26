@@ -1,5 +1,5 @@
 ---
-title: flutter变量
+title: flutter基础语法：变量
 sidebar_position:  3
 toc_max_heading_level: 4
 

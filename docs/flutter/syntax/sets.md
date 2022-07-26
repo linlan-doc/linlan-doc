@@ -1,9 +1,9 @@
 ---
-title: flutter set类型
+title: flutter基础语法：set类型
 sidebar_position:  7
 toc_max_heading_level: 4
 
-keywords: ['flutter语言教程','flutter基础语法','flutter语言学习','flutter set']
+keywords: ['flutter语言教程','flutter基础语法','flutter语言学习','flutter set类型']
 ---
 
 import Image from '@theme/IdealImage';

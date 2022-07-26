@@ -91,7 +91,7 @@ _go_ 支持指针接收者，这样避免按值拷贝。即：
 
 ### 3. 函数类型
 
- 函数类型是具有相同参数、相同返回值的函数的集合。下面例子，定义了参数为`string`，返回值为`string`的函数类型`FunctionType`。可以用`FunctionType`定义变量、定义函数参数等。需要注意的是`english`这个函数，在代码里面并没有显示的声明它是`FunctionType`类型的，但因为它的参数和返回值与`FunctionType`的定义一致，故它也属于`FunctionType`。
+ 函数类型是具有相同参数、相同返回值的函数的集合。下面例子，定义了参数为`string`，返回值为`string`的函数类型`FunctionType`。可以用`FunctionType`定义变量、定义函数参数等。需要注意的是`english`这个函数，在代码里面并没有显示的声明它是`FunctionType`类型的，但因为它的参数和返回值与`FunctionType`的定义一致，故它可以转成`FunctionType`（_type conversion_）。
 
     package main
 
@@ -118,6 +118,39 @@ _go_ 支持指针接收者，这样避免按值拷贝。即：
     	fmt.Printf("\n function type english %s", functionTypeParam(english))
     }
 
-<Image img={require('./asserts/golang-29.png')} alt="执行结果" />
+<Image img={require('./asserts/golang-29.png')} alt="执行结果" /> <br />
+
+
+ 需要说明的是：`english`的类型并不是`FunctionType`（_type assertion_），例如：
+
+    package main
+
+    import (
+    	"fmt"
+    )
+
+    type FunctionType func(s string) string
+
+    func english(s string) string {
+    	return "say english"
+    }
+
+    func main() {
+    	var a interface{} = english
+
+    	fmt.Printf("\ntype of a is %T", a)
+
+    	switch v := a.(type) {
+    	case FunctionType:
+    		fmt.Printf("\nv type is FunctionType %s", v("xx"))
+    	case func(s string) string:
+    		fmt.Printf("\nv type is not FunctionType %s", v("xx"))
+    	}
+
+    }
+
+
+<Image img={require('./asserts/golang-34.png')} alt="执行结果" />
+
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

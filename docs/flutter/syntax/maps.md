@@ -1,12 +1,13 @@
 ---
-title: flutter map类型
 sidebar_position:  8
 toc_max_heading_level: 4
-
+title: flutter基础语法：map类型
 keywords: ['flutter语言教程','flutter基础语法','flutter语言学习','flutter map类型']
 ---
 
 import Image from '@theme/IdealImage';
+
+#### 1. 定义
 
  _map_ 类型是计算机科学里非常重要的数据类型，它是键值对的集合。_map_ 里键只出现一次，值可以出现多次。_Dart_ 中 _map_ 的数据类型为 _Map_ ，使用`{}`进行初始化。例如：
 
@@ -26,11 +27,12 @@ import Image from '@theme/IdealImage';
 
 :::
 
+#### 2. 获取值
+
  _map_ 可以通过键值对的键(_key_)来获取对应的值(_value_)。_Dart_ 里 _map_ 获取键对应值的语法和 _list_ 类似，使用`[key]`，例如：
 
     var gifts = {'first': 'partridge'};
     assert(gifts['first'] == 'partridge');
-
 
  如果对应的 _key_ 不存在，则返回`null`，例如：
 
@@ -40,7 +42,20 @@ import Image from '@theme/IdealImage';
       print(value);
     }
 
-
 <Image img={require('./asserts/flutter12.png')} alt="运行结果" /><br />
+
+#### 3. 添加键值对
+
+ 向 _map_ 中添加元素，可以使用操作符`[]`，也可以调用 _Map_ 类型的`addEntries`方法。例如：
+
+    void main() {
+      var map = {"flutter": "dart", "hello": "world"};
+
+      map['react'] = 'js';
+      map.addEntries([MapEntry("golang", "go")]);
+      print(map);
+    }
+
+<Image img={require('./asserts/flutter15.png')} alt="运行结果" /><br />
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

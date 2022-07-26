@@ -17,7 +17,7 @@ import Image from '@theme/IdealImage';
     map[KeyType]ValueType
     var m map[string]int
 
- _map_ 常用的使用场景是获取 _key_ 对应的值，这就需要判断 _map_ 里面的 _key_ 与用户指定的 _key_ 是否相等，所以 _map_ 要求 `KeyType` 是[可比较](./go-bool)的。`slice`、`map`和函数值无法作为 _key_ 。
+ _map_ 常用的使用场景是获取 _key_ 对应的值，这就需要判断 _map_ 里面的 _key_ 与用户指定的 _key_ 是否相等，所以 _map_ 要求 `KeyType` 是[可比较](./go-bool)的。`slice`、`map`和函数无法作为 _key_ 。
 
     m["route"] = 66 //将route这个key对应的值设置为66
 
