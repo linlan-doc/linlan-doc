@@ -3,7 +3,7 @@ sidebar_position:  2
 title:             docusaurus基础配置
 toc_max_heading_level: 4
 
-keywords: ['docusaurus配置','个人建站','react','网站模板']
+keywords: ['docusaurus配置','个人建站','react','网站模板','docusaurus使用']
 ---
 
 import Tabs from '@theme/Tabs';

@@ -22,3 +22,4 @@ import Image from '@theme/IdealImage';
 1.  本站点基于[docusaurus](https://docusaurus.io/)构建。
 2.  编辑器采用[Atom](https://atom.io/)，使用的插件列表见[Atom使用](/blog/atom-usage)。
 3.  _IDE_ 采用 _Vs Code_。
+4.  _gif_ 使用[licecap](https://www.cockos.com/licecap/)录制。
