@@ -112,7 +112,7 @@ import Image from '@theme/IdealImage';
 
     }
 
-<Image img={require('./asserts/golang-2.png')} alt="执行结果" />
+<Image img={require('./asserts/golang-2.png')} alt="执行结果" /> <br />
 
 :::tip
 

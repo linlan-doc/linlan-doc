@@ -86,7 +86,7 @@ import Image from '@theme/IdealImage';
 
     }
 
-<Image img={require('./asserts/golang-30.png')} alt="执行结果" />
+<Image img={require('./asserts/golang-30.png')} alt="执行结果" /> <br />
 
 ### 3. 空接口
 
@@ -107,7 +107,7 @@ import Image from '@theme/IdealImage';
     	emptyInterface(struct{ string }{"hhh"})
     }
 
-<Image img={require('./asserts/golang-31.png')} alt="执行结果" />
+<Image img={require('./asserts/golang-31.png')} alt="执行结果" /> <br />
 
 ### 4. 类型断言和类型转换
 

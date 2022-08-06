@@ -204,7 +204,7 @@ import Image from '@theme/IdealImage';
     	fmt.Printf("a的长度：%d,a的容量:%d", len(a), cap(a))
     }
 
-<Image img={require('./asserts/golang-23.png')} alt="执行结果" />
+<Image img={require('./asserts/golang-23.png')} alt="执行结果" /> 
 
  `append`支持将 _slice2_ 添加到 _slice1_，但需要使用`...`将 _slice2_ 展开。
 
@@ -213,7 +213,7 @@ import Image from '@theme/IdealImage';
     a = append(a, b...) // equivalent to "append(a, b[0], b[1], b[2])"
     // a == []string{"John", "Paul", "George", "Ringo", "Pete"}
 
----
+* * *
 
 1.  [Go Slices: usage and internals](https://go.dev/blog/slices-intro)
 

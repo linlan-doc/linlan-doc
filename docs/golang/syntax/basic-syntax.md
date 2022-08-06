@@ -242,7 +242,8 @@ _go_ 没有三目运算符（ternary)，官方的解释是`if else`可读性更�
 
 <Image img={require('./asserts/golang-6.png')} alt="执行结果" />
 
----
+* * *
+
 1.  [UTF-8维基百科](https://en.wikipedia.org/wiki/UTF-8)
 
 2.  [go语言标准](https://go.dev/ref/spec)

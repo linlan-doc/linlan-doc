@@ -143,7 +143,7 @@ import Image from '@theme/IdealImage';
 
     }
 
-<Image img={require('./asserts/golang-10.png')} alt="执行结果" />
+<Image img={require('./asserts/golang-10.png')} alt="执行结果" /><br />
 
 
 ### 2. panic

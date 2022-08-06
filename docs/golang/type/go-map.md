@@ -45,7 +45,7 @@ import Image from '@theme/IdealImage';
     	m["def"] = 1
     }
 
-<Image img={require('./asserts/golang-32.png')} alt="执行结果" />
+<Image img={require('./asserts/golang-32.png')} alt="执行结果" /><br />
 
 :::tip
 

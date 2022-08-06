@@ -80,7 +80,7 @@ import Image from '@theme/IdealImage';
     	fmt.Printf("\nv outer :%s", v)
     }
 
-<Image img={require('./asserts/golang-1.png')} alt="执行结果" />
+<Image img={require('./asserts/golang-1.png')} alt="执行结果" /> <br />
 
 * * *
 
