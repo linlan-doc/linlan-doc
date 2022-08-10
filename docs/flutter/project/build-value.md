@@ -12,7 +12,7 @@ import Image from '@theme/IdealImage';
 
 #### 1.添加依赖
 
- _build_vlue_ 是一个三方包，和 _Java_ 里面的 _Lombok_ 有点类似，需要添加以下依赖。
+ _build_value_ 是一个三方包，和 _Java_ 里面的 _Lombok_ 有点类似，需要添加以下依赖。
 
     dependencies:
       built_collection: ^5.0.0
@@ -92,7 +92,14 @@ import Image from '@theme/IdealImage';
 
  执行命令`flutter packages pub run build_runner build`即可完成自动生成。此时目录下会多出一个 _person.g.dart_ 文件。
 
-<Image img={require('./asserts/flutter7.png')} alt="允许调试外部库" /><br />
+<Image img={require('./asserts/flutter7.png')} alt="buil value自动生成文件" /><br />
+
+
+:::tip
+
+ _build_value_ 支持监控文件变化,自动生成代码。使用命令`flutter packages pub run build_runner watch`即可
+
+:::
 
 * * *
 

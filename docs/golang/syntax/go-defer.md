@@ -36,9 +36,11 @@ import Image from '@theme/IdealImage';
 
  从上面执行的结果可以得出几个结论:
 
-1.  _deferred function_ 的参数是在执行`defer`语句时计算的，不是在调用 _deferred function_ 时计算的（执行`defer`语句时`i`为`0,1,2,3,4`，调用 _deferred function_ 时 `i` 为10）。
+1.  最后一个`power`函数执行完成后，`main`函数返回前，开始执行`for`循环里的 _deferred function_ 。
 
-2.  多个 _deferred function_ 执行时遵守 _LIFO_ （后进先出）原则。
+2.  _deferred function_ 的参数是在执行`defer`语句时计算的，不是在调用 _deferred function_ 时计算的（执行`defer`语句时`i`为`0,1,2,3,4`，调用 _deferred function_ 时 `i` 为10）。
+
+3.  多个 _deferred function_ 执行时遵守 _LIFO_ （后进先出）原则。
 
  下面例子更清晰的说明 _deferred function_ 的参数是在执行`defer`语句的时候计算的。
 

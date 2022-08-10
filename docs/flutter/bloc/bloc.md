@@ -1,6 +1,6 @@
 ---
-title: flutter里的bloc
-sidebar_position:  8
+title: 初识bloc
+sidebar_position:  1
 toc_max_heading_level: 4
 
 keywords: ['flutter语言教程','flutter基础语法','flutter语言学习','bloc pattern']
@@ -93,7 +93,7 @@ import Image from '@theme/IdealImage';
 
 #### 2. 添加cubit
 
- _Cubit_ 是 _bloc_ 包提供的一个工具，它和 _bloc_ 非常相似，只是没有使用 _event_。如果你安装了[bloc](./flutter-extension)插件，可以右键 _lib_ 目录，选择 _New Cubit_。
+ _Cubit_ 是 _bloc_ 包提供的一个工具，它和 _bloc_ 非常相似，只是没有使用 _event_。如果你安装了[bloc](../project/flutter-extension)插件，可以右键 _lib_ 目录，选择 _New Cubit_。
 
 ![new cubit](./asserts/flutter_cubit.gif)<br />
 

@@ -10,7 +10,7 @@ import 'react-vertical-timeline-component/style.min.css';
 
  _go_ 是 _Google_ 公司开发的一款编程语言，它最早出现于2009年。得益于 _k8s_，_go_ 越来越流行，中国大陆越来越多的公司开始使用 _go_ 进行开发。本文档适用于有一定编程基础的读者。对于没有编程基础的读者，建议先学习 _c/c++_ 或者 _Java_，这样才能更好的理解文档内容。
 
- 互联网上 _go_ 语言的学习资料非常丰富，现在列举一些本文档使用到的，共读者参考。
+ 互联网上 _go_ 语言的学习资料非常丰富，以下内容读者参考。
 
 1.  [A Tour of Go](https://go.dev/tour/welcome/1)
 2.  [The Go Programming Language Specification](https://go.dev/ref/spec)
