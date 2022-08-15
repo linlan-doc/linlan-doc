@@ -20,6 +20,7 @@ keywords: ['markdown写博客']
 ↑ `&uarr;`
 → `&rarr;`
 ↓ `&darr;`
+✓`&#10003;`
 
 #### 4. 表格
 

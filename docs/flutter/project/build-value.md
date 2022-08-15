@@ -92,8 +92,7 @@ import Image from '@theme/IdealImage';
 
  执行命令`flutter packages pub run build_runner build`即可完成自动生成。此时目录下会多出一个 _person.g.dart_ 文件。
 
-<Image img={require('./asserts/flutter7.png')} alt="buil value自动生成文件" /><br />
-
+&lt;Image img={require('./asserts/flutter7.png')} alt="buil value自动生成文件" /><br />
 
 :::tip
 
@@ -101,8 +100,74 @@ import Image from '@theme/IdealImage';
 
 :::
 
+#### 4. builder使用
+
+ 这里定义了`person`类，它包含了两个属性：`name`和`address`。
+
+    abstract class Person implements Built<Person, PersonBuilder> {
+      // fields go here
+      String get name;
+      String get address;
+
+      Person._();
+
+      factory Person([updates(PersonBuilder b)]) = _$Person;
+    }
+
+ 使用时，传入一个 _builder_ 到构造函数中。这里`..`被称为[级联操作符](https://dart.dev/guides/language/language-tour#cascade-notation)。
+
+    Person p = Person((b) => b
+        ..name = "lily"
+        ..address = "jiangxi");
+
+ 如果 _builder_ 没有指定某个属性的值，此时程序会崩溃。需要在可以为空的属性前加上`?`。
+
+    abstract class Person implements Built<Person, PersonBuilder> {
+      // fields go here
+      String? get name;
+      String get address;
+
+      Person._();
+
+      factory Person([updates(PersonBuilder b)]) = _$Person;
+    }
+
+#### 5. rebuild生成新对象
+
+ _build_value_ 没有 _setter_ 方法，如果想修改某些属性，可以使用`rebuild`方法重新生成一个对象。
+
+    Person q = p.rebuild((b) => b..address = "sichuang");
+
+#### 6. build collectoin使用
+
+ 当属性值为集合时，可以使用 _build_value_ 里的 _build collcetion_ 。定义属性类型时，需要指定集合，下面例子定义了`phones`这个 _list_ 和`bgs`这个 _set_。
+
+    abstract class Person implements Built<Person, PersonBuilder> {
+      // fields go here
+      String? get name;
+      String get address;
+
+      BuiltList<String> get phones;
+
+      BuiltSet<String> get bags;
+
+      Person._();
+
+      factory Person([updates(PersonBuilder b)]) = _$Person;
+    }
+
+ 使用时，可以向对应的集合添加所需的元素。
+
+    Person p = Person((b) => b
+        ..address = "jiangxi"
+        ..name = "lily"
+        ..bags.addAll(['bag1', 'bag2'])
+        ..phones.addAll(['phone1', 'phone2']));
+
 * * *
 
 1.  [Built Value Tutorial for Dart & Flutter](https://resocoder.com/2019/01/16/built-value-tutorial-for-dart-flutter/)
+
+2.  [Youtube video](https://www.youtube.com/watch?v=Jji05a2GV_s&t=1029s)
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
