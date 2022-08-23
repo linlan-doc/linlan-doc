@@ -10,7 +10,7 @@ import Image from '@theme/IdealImage';
 
  移动设备顶部一般会有状态栏或者特殊的刘海，在设计 _ui_ 时需要防止内容被盖住。_flutter_ 提供了`SafeArea`解决这类问题。
 
-1.  内容被覆盖的例子
+#### 1. 内容被覆盖
 
 
     import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ import Image from '@theme/IdealImage';
 
 <Image img={require('./asserts/flutter1.png')} alt="下载安装flutter插件" /> <br />
 
-2.  使用SafeArea
+#### 2. 使用SafeArea
 
 
     import 'package:flutter/material.dart';
@@ -38,6 +38,7 @@ import Image from '@theme/IdealImage';
 
 
 <Image img={require('./asserts/flutter2.png')} alt="下载安装flutter插件" /> <br />
+
 
 
  第一个例子没有使用`SafeArea`，文字被状态栏盖住了，第二个就没有这个问题。

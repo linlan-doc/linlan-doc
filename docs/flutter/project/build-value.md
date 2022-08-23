@@ -8,7 +8,7 @@ keywords: ['flutter语言教程','flutter基础语法','flutter语言学习','fl
 
 import Image from '@theme/IdealImage';
 
- 实际开发过程中，不可避免的需要写各种各样的数据对象。为对象里面的每一个属性编写 _setter_ 和 _getter_ 方法是非常繁琐的。_Dart_ 提供了 _build_value_ 工具自动生成这些方法，让我们更专注业务本身。
+ 实际开发过程中，不可避免的要和服务端进行数据交互。_json_ 是一种可读性强应用广泛的协议。_Java_ 语言中，有 _Gson_,_Jackson_,_fastjson_ 这样的序列化包，但 _Dart_ 里没有。这是因为这些包实现序列化依赖反射，而反射与缩小包体积的算法[tree shaking](https://en.wikipedia.org/wiki/Tree_shaking)相冲突。所以在 _Dart_ 里使用 _build_value_ 这样的工具生成序列化的代码。
 
 #### 1.添加依赖
 
@@ -22,7 +22,7 @@ import Image from '@theme/IdealImage';
       build_runner: ^1.0.0
       built_value_generator: ^8.4.0
 
-#### 2. 配置Vs Code模板
+#### 2. 配置Vs Code代码模板
 
  _build_value_ 会自动识别需要生成代码的类，这些类的格式固定。在 _Vs Code_ 里可以配置模板：文件→首选项→配置用户代码片段，搜索`dart.json`，将下面的内容拷贝进去。
 
@@ -54,7 +54,7 @@ import Image from '@theme/IdealImage';
                 "\t\treturn json.encode(serializers.serializeWith(${1}.serializer, this));",
                 "\t}",
                 "",
-                "\tstatic ${1} fromJson(String jsonString) {",
+                "\tstatic ${1}? fromJson(String jsonString) {",
                 "\t\treturn serializers.deserializeWith(${1}.serializer, json.decode(jsonString));",
                 "\t}",
                 "",
@@ -84,15 +84,15 @@ import Image from '@theme/IdealImage';
 
  新建一个 _person.dart_ 文件，输入`blth`，插件自动补充 _build_value_ 的头。
 
-![i18n](./asserts/flutter_blth.gif)
+![自动填充build value头](./asserts/flutter_blth.gif)
 
  输入`blt`会补充内容。
 
-![i18n](./asserts/flutter_blt.gif)
+![自动填充build value代码](./asserts/flutter_blt.gif)
 
  执行命令`flutter packages pub run build_runner build`即可完成自动生成。此时目录下会多出一个 _person.g.dart_ 文件。
 
-&lt;Image img={require('./asserts/flutter7.png')} alt="buil value自动生成文件" /><br />
+<Image img={require('./asserts/flutter7.png')} alt="buil value自动生成文件" /><br />
 
 :::tip
 
@@ -140,7 +140,7 @@ import Image from '@theme/IdealImage';
 
 #### 6. build collectoin使用
 
- 当属性值为集合时，可以使用 _build_value_ 里的 _build collcetion_ 。定义属性类型时，需要指定集合，下面例子定义了`phones`这个 _list_ 和`bgs`这个 _set_。
+ 当属性值为集合时，可以使用 _build_value_ 里的 _build collcetion_ 。定义属性类型时，需要指定集合，下面例子定义了`phones`这个 _list_ 和`bags`这个 _set_。
 
     abstract class Person implements Built<Person, PersonBuilder> {
       // fields go here
@@ -164,10 +164,55 @@ import Image from '@theme/IdealImage';
         ..bags.addAll(['bag1', 'bag2'])
         ..phones.addAll(['phone1', 'phone2']));
 
+#### 7. serializer使用
+
+ 和前面类似，在_Vs code_ 里输入`blts`，插件就会自动补全代码。输入类名之后记得按下`tab`，这样`serializer`才会变成驼峰结构。
+
+![自动填充序列化代码](./asserts/flutter_blts.gif)
+
+ 接下来需要新建`serializers.dart`，和模型类似，先使用`blth`声明头信息。然后定义`serializer`。
+
+    library serializers;
+
+    import 'dart:convert';
+
+    import 'package:built_collection/built_collection.dart';
+    import 'package:built_value/built_value.dart';
+    import 'package:built_value/serializer.dart';
+    import 'package:flutter_application_1/model/student.dart';
+
+    part 'serializers.g.dart';
+
+    @SerializersFor([Student])
+    final Serializers serializers = _$serializers;
+
+ 这时就可以在其他地方使用`toJson`和`fromJson`方法了。
+
+    void main() {
+      Student s = Student((b) => b
+        ..name = "lily"
+        ..address = "qinhai");
+      print(s.toJson());
+    }
+
+
+<Image img={require('./asserts/flutter9.png')} alt="JSON的输出结果" /><br />
+
+#### 8. 使用标准json序列化
+
+ 细心的读者会发现，_build_value_ 序列化方式和标准的序列化方式不一样，可以修改`serializer`，使用标准的序列化方式。
+
+    @SerializersFor([Student])
+    final Serializers serializers =
+        (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();
+
+
 * * *
 
 1.  [Built Value Tutorial for Dart & Flutter](https://resocoder.com/2019/01/16/built-value-tutorial-for-dart-flutter/)
 
 2.  [Youtube video](https://www.youtube.com/watch?v=Jji05a2GV_s&t=1029s)
+
+3.  [JSON and serialization](https://docs.flutter.dev/development/data-and-backend/json)
 
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
