@@ -8,7 +8,8 @@ keywords: ['flutter语言教程','flutter基础语法','flutter语言学习','fl
 
 import Image from '@theme/IdealImage';
 
-> 本文是Flutter动画系列的第二篇，建议读者先阅读前面的教程，做到无缝衔接。
+> 本文是Flutter动画系列的第二篇，建议读者阅读前面的教程，做到无缝衔接。
+
 
  [flutter中如何使用动画](./implicity-animation.md)一文介绍了透明度动画，但`AnimatedOpacity`仅支持组件透明度动画，这显然不能满足开发需求。不过不用担心，_flutter_ 定义了非常多的动画组件，列举如下：
 

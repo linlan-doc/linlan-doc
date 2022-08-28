@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: Ubuntu 22.04安装nginx加速插件PageSpeed
-keywords: ['网页加速','nginx','PageSpeed','Ubuntu']
+keywords: ['如何给网页加速','nginx安装PageSpeed插件','PageSpeed插件安装教程','Ubuntu如何安装PageSpeed插件']
 
 toc_max_heading_level: 4
 ---

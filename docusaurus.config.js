@@ -123,29 +123,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [{
-            title: '文档',
-            items: [{
-              label: '简介',
-              to: '/docs/intro',
-            }, ],
-          },
-          {
-            title: '社区',
-            items: [{
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            }],
-          },
-          {
-            title: '更多',
-            items: [{
-              label: '博客',
-              to: '/blog',
-            }, ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} 栏观, 基于Facebook开源项目docusaurus构建`,
+        copyright: `Copyright © ${new Date().getFullYear()} 栏观，基于Facebook开源项目docusaurus构建`,
       },
       prism: {
         theme: lightCodeTheme,
