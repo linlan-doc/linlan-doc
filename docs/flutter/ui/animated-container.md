@@ -34,7 +34,7 @@ import Image from '@theme/IdealImage';
 
  本文介绍`AnimatedContainer`，它可以看作`Container`的动画版，功能非常强大。下面例子中，点击按钮之后，组件的形状、背景、对齐方式均发生了变化。
 
-![组件变化](./asserts/flutter_container.gif)
+<Image img={require('./asserts/flutter_container.gif')} alt="组件变化" /> <br />
 
  和透明度动画的代码类似，当按钮被按下时，通过`setState`方法重新渲染组件，这时组件的长度、宽度、背景颜色、对齐方式等都发生了变化，`AnimatedContainer`会在2秒中的时间完成这些属性的过渡。
 

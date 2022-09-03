@@ -3,7 +3,7 @@ title: 画图应用实战：菜单
 sidebar_position:  1
 toc_max_heading_level: 4
 
-keywords: ['flutter语言教程','flutter画图应用实战']
+keywords: ['flutter语言教程','flutter画图应用']
 ---
 
 import Image from '@theme/IdealImage';

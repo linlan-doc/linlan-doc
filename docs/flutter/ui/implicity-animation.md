@@ -1,5 +1,5 @@
 ---
-title: flutter动画:AnimatedOpacity
+title: flutter动画：AnimatedOpacity
 sidebar_position:  2
 toc_max_heading_level: 4
 

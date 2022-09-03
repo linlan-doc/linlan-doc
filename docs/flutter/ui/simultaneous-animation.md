@@ -1,5 +1,5 @@
 ---
-title: flutter动画：多个属性如何一起动？
+title: flutter如何实现多属性动画
 sidebar_position:  5
 toc_max_heading_level: 4
 
@@ -12,7 +12,8 @@ import Image from '@theme/IdealImage';
 
  在[第三篇](./animation-controller.md)教程里介绍了`AnimatedWidget`，这里引出一个问题：如果 _Widget_ 有多个属性需要变化，该如何实现。例如下图中，背景颜色和组件大小同时发生变化。
 
-![多个属性同时变化](./asserts/flutter_multi_prop.gif)
+<Image img={require('./asserts/flutter_multi_prop.gif')} alt="多个属性同时变化" /> <br />
+
 
  `Tween`对象提供了`evaluate`方法，它的入参是`Animation`，返回当前对应的值。这样每次`Animation`生成新值时，可以通过`evaluate`方法计算`Tween`对应的值。
 

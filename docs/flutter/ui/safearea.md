@@ -1,9 +1,9 @@
 ---
 sidebar_position:  1
-title: flutter界面设计：SafeArea
+title: flutter里的SafeArea有什么用
 toc_max_heading_level: 4
 
-keywords: ['flutter介绍','移动端编程','react native']
+keywords: ['flutter ui','SafeArea','flutter如何躲避刘海']
 ---
 
 import Image from '@theme/IdealImage';

@@ -21,6 +21,7 @@ keywords: ['markdown写博客']
 → `&rarr;`
 ↓ `&darr;`
 ✓`&#10003;`
+°`&deg;`
 
 #### 4. 表格
 
