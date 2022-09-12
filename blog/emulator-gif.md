@@ -15,6 +15,13 @@ import Image from '@theme/IdealImage';
 
 <Image img={require('./asserts/record_gif.png')} alt="LICEcap录制git" /> <br />
 
+:::tip
+
+ 点击开始录制之后，有3秒钟的准备时间。
+
+:::
+
+
 ### 2. 使用模拟器自带录屏工具
 
  安卓模拟器自带录屏工具，在模拟器的右侧点击 _more_ ，弹窗里 _Record and Playback_ 即为录屏工具。

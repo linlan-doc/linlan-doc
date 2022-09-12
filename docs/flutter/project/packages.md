@@ -1,6 +1,6 @@
 ---
 title: flutter包管理
-sidebar_position:  1
+sidebar_position:  2
 toc_max_heading_level: 4
 keywords: ['flutter语言教程','flutter项目实战','flutter包管理','flutter依赖管理']
 ---

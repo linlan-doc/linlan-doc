@@ -14,11 +14,14 @@ import Image from '@theme/IdealImage';
 
 <Image img={require('./asserts/flutter_multi_prop.gif')} alt="多个属性同时变化" /> <br />
 
+#### 1. Tween evaluate
 
  `Tween`对象提供了`evaluate`方法，它的入参是`Animation`，返回当前对应的值。这样每次`Animation`生成新值时，可以通过`evaluate`方法计算`Tween`对应的值。
 
     evaluate(Animation<double> animation) → Color?
     The current value of this object for the given Animation. [...]
+
+ 对于多个属性，可以定义多个`Tween`，属性的值通过`evaluate`计算即可。
 
  颜色和组件同时变化实现如下，这里定义了`CurvedAnimation`来设置 _forward_ 和 _reverse_ 的 _curve_ ，然后将`CurvedAnimation`传入`AnimatedWidget`，作为`Tween`的计算入参，得到对应的属性值。
 
@@ -81,13 +84,11 @@ import Image from '@theme/IdealImage';
                         borderRadius: BorderRadius.circular(18.0),
                         side: const BorderSide(color: Colors.red)))),
             onPressed: () {
-              setState(() {
-                if (controller.isDismissed) {
-                  controller.forward();
-                } else if (controller.isCompleted) {
-                  controller.reverse();
-                }
-              });
+              if (controller.isDismissed) {
+                controller.forward();
+              } else if (controller.isCompleted) {
+                controller.reverse();
+              }
             },
             child: const Text('change', style: TextStyle(color: Colors.red)),
           ),

@@ -1,5 +1,5 @@
 ---
-sidebar_position:  2
+sidebar_position:  1
 title: flutter环境搭建
 toc_max_heading_level: 4
 
@@ -57,7 +57,7 @@ import Image from '@theme/IdealImage';
 
 :::tip
 
- 如果选择的是 _Android_，并且一直卡在`Running Gradle task 'assembleDebug'...`，可以参考[这篇文章](https://stackoverflow.com/questions/59516408/flutter-app-stuck-at-running-gradle-task-assembledebug)进行解决。如果无法下载 _jar_ 包，尝试更换 _gradle_ 镜像地址，或者[搭建代理](../set-up-site/your-site-in-one)。设置代理可以参考[Power Shell使用](/blog/ps-usage)。
+ 如果选择的是 _Android_，并且一直卡在`Running Gradle task 'assembleDebug'...`，可以参考[这篇文章](https://stackoverflow.com/questions/59516408/flutter-app-stuck-at-running-gradle-task-assembledebug)进行解决。如果无法下载 _jar_ 包，尝试更换 _gradle_ 镜像地址，或者[搭建代理](../../set-up-site/your-site-in-one)。设置代理可以参考[Power Shell使用](/blog/ps-usage)。
 
 :::
 

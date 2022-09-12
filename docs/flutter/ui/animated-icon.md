@@ -10,7 +10,7 @@ import Image from '@theme/IdealImage';
 
 > 本文是Flutter动画系列的第八篇，建议读者阅读前面的教程，做到无缝衔接。
 
- 当按钮被点击时，图标也需要相应的变化。例如播放——暂停这种场景，本文介绍如何在 _flutter_ 里实现图标切换的动画。
+ 当按钮被点击时，图标也需要相应的变化，例如播放——暂停这种场景。本文介绍如何在 _flutter_ 里实现图标切换的动画。
 
 ![图标切换效果](./asserts/flutter_animated_icon.gif)
 

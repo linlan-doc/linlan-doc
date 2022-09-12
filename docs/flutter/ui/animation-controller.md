@@ -1,5 +1,5 @@
 ---
-title: flutter动画：Animation­Controller
+title: Animation­Controller使用教程
 sidebar_position:  4
 toc_max_heading_level: 4
 
@@ -104,7 +104,7 @@ import Image from '@theme/IdealImage';
 
  这里需注意的点有：
 
-1.  `controller`通过`addListener`设置回调函数，回调函数只是调用了`setState`方法就实现了重新渲染 _ui_。这时因为透明度使用`controller.value`，所以每次回调时透明度都发生了变化。
+1.  `controller`通过`addListener`设置回调函数，回调函数调用`setState`方法重新渲染 _ui_。因为透明度的值为`controller.value`，所以每次回调时透明度都发生了变化。
 
 2.  点击按钮时，会判断`controller`的状态，如果动画已完成，则反向（即透明度从1变成0）；如果动画停在开始，则执行动画。从这也可以看出这个类为什么叫`controller`了，有控制动画的意思。
 

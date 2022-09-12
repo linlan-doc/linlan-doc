@@ -1,6 +1,6 @@
 ---
 title: flutter开发过程中问题汇总
-sidebar_position:  2
+sidebar_position:  4
 toc_max_heading_level: 4
 keywords: ['flutter语言教程','flutter项目实战','开发过程中问题']
 ---

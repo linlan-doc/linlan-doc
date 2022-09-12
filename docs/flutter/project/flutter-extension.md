@@ -1,6 +1,6 @@
 ---
 title: Vs Code常用插件整理
-sidebar_position:  7
+sidebar_position:  8
 toc_max_heading_level: 4
 
 keywords: ['flutter语言教程','flutter基础语法','flutter语言学习','插件']

@@ -1,6 +1,6 @@
 ---
 title: flutter安装应用到Android手机
-sidebar_position:  8
+sidebar_position:  9
 toc_max_heading_level: 4
 
 keywords: ['flutter语言教程','flutter应用安装','Android']

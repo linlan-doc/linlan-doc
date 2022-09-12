@@ -1,5 +1,5 @@
 ---
-title: flutter页面切换动画如何实现
+title: flutter如何实现页面切换动画
 sidebar_position:  8
 toc_max_heading_level: 4
 
@@ -10,7 +10,7 @@ import Image from '@theme/IdealImage';
 
 > 本文是Flutter动画系列的第六篇，建议读者阅读前面的教程，做到无缝衔接。
 
- 应用里难免需要从页面 _A_ 跳转到页面 _B_ ，本文介绍 _flutter_ 如何实现页面切换动画。
+ 应用里有时需要从页面 _A_ 跳转到页面 _B_ ，本文介绍 _flutter_ 如何实现页面切换动画。
 
 ![页面切换动画](./asserts/flutter_page_transition.gif)
 
