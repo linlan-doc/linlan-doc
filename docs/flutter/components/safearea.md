@@ -22,7 +22,7 @@ import Image from '@theme/IdealImage';
       ));
     }
 
-<Image img={require('./asserts/flutter1.png')} alt="下载安装flutter插件" /> <br />
+<Image img={require('./asserts/flutter1.png')} alt="没有使用SafeArea，部分内容被覆盖" /> <br />
 
 #### 2. 使用SafeArea
 
@@ -37,7 +37,7 @@ import Image from '@theme/IdealImage';
     }
 
 
-<Image img={require('./asserts/flutter2.png')} alt="下载安装flutter插件" /> <br />
+<Image img={require('./asserts/flutter2.png')} alt="使用SafeArea" /> <br />
 
 
 

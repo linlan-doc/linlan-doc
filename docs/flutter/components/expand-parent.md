@@ -1,6 +1,6 @@
 ---
 title: flutter如何和父组件一样宽
-sidebar_position:  7
+sidebar_position:  2
 toc_max_heading_level: 4
 
 keywords: ['flutter语言教程','flutter组件设计']
