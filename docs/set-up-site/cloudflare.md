@@ -36,4 +36,12 @@ import Image from '@theme/IdealImage';
 
 <Image img={require('./asserts/set-up-site16.png')} alt="修改nameserver" />
 
+### 5. warp+使用
+
+ 前往[warp](https://1.1.1.1/)官网下载对应客户端版本，目前测试下来 _windows_ 版可以正常连接，但安卓无法使用。
+
+ 电报上有免费的 _warp+_ 流量可以领取。先关注 _Warp Plus_ ,然后前往 _Warp+ Bot_ 点击 _start_， 回答它的一个非常简单的问题，即可生成一个 _key_，这个 _key_ 的流量是几十 _PB_，一般用不完。获得 _key_ 之后在 _warp_ 客户端进行替换即可，注意替换的时候可能是需要 _VPN_ 的。
+
+ 有了 _warp_，你可以 _ssh_ 到被墙的 _vps_ 上，解决了一大痛点。
+
 [署名-非商业性使用-禁止演绎 4.0 国际](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)

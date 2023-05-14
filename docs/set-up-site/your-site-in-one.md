@@ -35,7 +35,7 @@ import Image from '@theme/IdealImage';
 :::
 
 
- 接下来需要选择操作系统镜像，选择 _Clound Compute_，这里面的套餐最低5 _$_/月，同时包含了1000 _G_ 的流量，个人站点足够了。笔者使用的是 _Ubuntu_ 的镜像，因此本文基于 _Ubuntu_ 进行编写的。
+ 接下来需要选择操作系统镜像，选择 _Cloud Compute_，这里面的套餐最低5 _$_/月，同时包含了1000 _G_ 的流量，个人站点足够了。笔者使用的是 _Ubuntu_ 的镜像，因此本文基于 _Ubuntu_ 进行编写的。
 
 <Image img={require('./asserts/set-up-site2.png')} alt="镜像选择" />
 
@@ -64,6 +64,12 @@ import Image from '@theme/IdealImage';
 
     nginx -t //测试一下配置是否正常
     nginx -s reload //重启服务
+
+
+ 如果访问页面提示404，可能是 _nginx_ 无法访问站点所在的文件夹，可以使用以下命令。
+
+    chmod +x /home/
+    chmod +x /home/username
 
 :::tip
 
@@ -196,6 +202,20 @@ import Image from '@theme/IdealImage';
  _trojan_ 的配置修改完之后，启动 _trojan_ 服务即可。
 
     trojan /usr/local/etc/trojan/config.json &
+
+
+#### 7.1. trojan-go
+
+ 随着管制趋严，很多非中国大陆的域名无法访问，这个时候就需要使用 _Cloud flare_ 进行中转。_Cloud flare_ 的使用可以参考[文章](./cloudflare.md)，服务端从 _trojan_ 变为 _trojan go_ 。这样我们的 _VPN_ 客户端通过 _Web socket_ 协议同 _Cloud flare_ 进行交互，_Cloud flare_ 再将请求转发到 _trojan go_ 服务端。
+
+ _trojan go_ 可以使用以下命令进行安装，启动命令和 _trojan_ 类似。`nohup >/dev/null 2>&1 trojan-go -config config.json &`
+
+    curl版
+    sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/DongfeiSay/trojan-go-quickstart/master/trojan-go-quickstart.sh)"
+
+    wget 版
+    sudo bash -c "$(wget -O- https://raw.githubusercontent.com/DongfeiSay/trojan-go-quickstart/master/trojan-go-quickstart.sh)"
+
 
  接下来是 _trojan_ 客户端，有很多客户端支持 _trojan_ 协议，这里笔者使用的是[Project V](https://www.v2ray.com/en/awesome/tools.html)的客户端，它既支持 _Project V_ 的协议，也支持 _trojan_ 的协议，配置如下图。
 
